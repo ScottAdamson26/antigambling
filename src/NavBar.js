@@ -4,9 +4,9 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className='font-rubik'>
       {/* Top Navigation Bar */}
-      <nav className="bg-zinc-900 text-white p-4 flex justify-between items-center">
+      <nav className="bg-zinc-900 text-white p-4 flex justify-between items-center font-rubik">
         <div className="text-xl font-bold">My Blog</div>
         <div className="hidden md:flex space-x-4">
           <a href="/" className="hover:text-yellow-400">Home</a>
