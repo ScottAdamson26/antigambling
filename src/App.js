@@ -5,14 +5,20 @@ import HomePage from './HomePage';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <div className="md:ml-64"> {/* Adjust for sidebar space */}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="bg-zinc-900 min-h-screen font-rubik">
+      <Router>
+        <Navbar />
+        <div className="flex pt-16">
+          {/* Adjust for sidebar space */}
+          <div className="hidden md:block w-64"></div>
+          <main className="flex-1 p-4 md:p-8">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </div>
   );
 }
 
