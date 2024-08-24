@@ -5,7 +5,7 @@ import HomePage from './HomePage';
 
 function App() {
   return (
-    <div className="bg-zinc-900 min-h-screen font-rubik">
+    <div className="bg-zinc-900 min-h-screen font-anton">
       <Router>
         <Navbar />
         <div className="flex pt-16">

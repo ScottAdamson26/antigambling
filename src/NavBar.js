@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div>
       {/* Top Navigation Bar */}
-      <nav className="bg-zinc-950 text-white p-4 flex justify-between items-center fixed w-full z-10 font-rubik">
+      <nav className="bg-zinc-950 text-white p-4 flex justify-between items-center fixed w-full z-10 font-anton">
         <div className="text-xl font-bold">My Blog</div>
         <div className="hidden md:flex space-x-4">
           <a href="/" className="hover:text-yellow-400">Home</a>
@@ -23,7 +23,7 @@ function Navbar() {
       </nav>
 
       {/* Sidebar for Desktop */}
-      <div className="hidden md:block fixed left-0 top-16 w-64 h-screen bg-zinc-950 text-white pt-4 font-rubik">
+      <div className="hidden md:block fixed left-0 top-16 w-64 h-screen bg-zinc-950 text-white pt-4 font-anton">
         <nav className="space-y-4">
           <a href="/" className="block py-2 px-4 hover:bg-zinc-700">Home</a>
           <a href="/casino" className="block py-2 px-4 hover:bg-zinc-700">Casino</a>
@@ -35,7 +35,7 @@ function Navbar() {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-zinc-950 text-white p-4 font-rubik">
+        <div className="md:hidden bg-zinc-950 text-white p-4 font-anton">
           <a href="/" className="block py-2">Home</a>
           <a href="/casino" className="block py-2">Casino</a>
           <a href="/sports" className="block py-2">Sports</a>

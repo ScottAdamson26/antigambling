@@ -50,7 +50,7 @@ function BlogPostWidgets() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
       {posts.map((post, index) => (
         <div key={index} className="bg-zinc-800 text-white p-6 rounded-lg shadow-lg hover:bg-zinc-700 transition duration-200">
-          <h2 className="text-2xl font-semibold mb-2 font-rubik">{post.name.replace('.md', '')}</h2>
+          <h2 className="text-2xl font-semibold mb-2 font-anton">{post.name.replace('.md', '')}</h2>
           {/* Render parsed HTML content */}
           <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
         </div>

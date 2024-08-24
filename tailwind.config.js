@@ -5,7 +5,7 @@ module.exports = {
   ],
   theme: {
     extend: {fontFamily: {
-      rubik: ['"Rubik Mono One"', 'sans-serif'],
+      anton: ['Anton', 'sans-serif'],
     },},
   },
   plugins: [],
