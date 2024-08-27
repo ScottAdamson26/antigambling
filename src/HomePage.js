@@ -5,7 +5,7 @@ import BlogPostWidgets from './BlogPostWidgets';
 
 function HomePage() {
   return (
-    <div className="w-full mx-auto p-4 md:p-8 bg-zinc-900">
+    <div className="w-full mx-auto p-4 md:p-8 bg-customDark">
       <Feature />
       <Showcase />
       <BlogPostWidgets />

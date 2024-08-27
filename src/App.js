@@ -1,21 +1,31 @@
+// App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './NavBar';
 import HomePage from './HomePage';
+
+import MobileNav from './MobileNav';
+import DesktopNav from './DesktopNav';
 
 function App() {
   return (
-    <div className="bg-zinc-900 min-h-screen font-anton">
+    <div className="bg-customDark min-h-screen font-anton">
       <Router>
-        <Navbar />
-        <div className="flex pt-16">
-          {/* Adjust for sidebar space */}
-          <div className="hidden md:block w-64"></div>
-          <main className="flex-1 p-4 md:p-8">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-            </Routes>
-          </main>
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <MobileNav />
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:block">
+          <DesktopNav />
+        </div>
+
+        {/* Page Content */}
+        <div className="md:ml-64 lg:ml-64 p-4">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+           
+          </Routes>
         </div>
       </Router>
     </div>

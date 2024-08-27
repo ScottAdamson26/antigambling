@@ -4,9 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {fontFamily: {
-      anton: ['Anton', 'sans-serif'],
-    },},
+    extend: {
+      colors: {
+        customDark: '#1F1E25',
+      },
+      fontFamily: {
+        anton: ['Anton', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
