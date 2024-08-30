@@ -8,16 +8,22 @@ function Showcase() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-      {showcases.map((showcase, index) => (
-        <div key={index} className={`${showcase.bgColor} text-white p-6 rounded-lg shadow-lg hover:opacity-90 transition duration-200`}>
-          <h2 className="text-2xl font-bold mb-2 font-anton">{showcase.title}</h2>
-          <p>{showcase.description}</p>
-          <button className="mt-4 bg-white text-zinc-900 font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition duration-200">
-            Play Game
-          </button>
-        </div>
-      ))}
+    <div className="mb-8 font-suse">
+      {/* Heading for Best Promotions */}
+      <h2 className="text-lg font-extrabold text-white mb-4 uppercase tracking-wide">Best Promotions</h2>
+      
+      {/* Grid of Showcase Items */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {showcases.map((showcase, index) => (
+          <div key={index} className={`${showcase.bgColor} text-white p-6 rounded-lg shadow-lg hover:opacity-90 transition duration-200`}>
+            <h2 className="text-2xl font-bold mb-2 font-SUSE">{showcase.title}</h2>
+            <p>{showcase.description}</p>
+            <button className="mt-4 bg-white text-zinc-900 font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition duration-200">
+              Play Game
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

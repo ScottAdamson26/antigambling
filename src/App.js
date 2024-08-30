@@ -8,7 +8,7 @@ import DesktopNav from './DesktopNav';
 
 function App() {
   return (
-    <div className="bg-customDark min-h-screen font-anton">
+    <div className="bg-customDark min-h-screen font-SUSE">
       <Router>
         {/* Mobile Navigation */}
         <div className="md:hidden">

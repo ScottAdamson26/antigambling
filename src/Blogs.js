@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { marked } from 'marked';
 
-function BlogPostWidgets() {
+function Blogs() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,16 +47,22 @@ function BlogPostWidgets() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-      {posts.map((post, index) => (
-        <div key={index} className="bg-zinc-800 text-white p-6 rounded-lg shadow-lg hover:bg-zinc-700 transition duration-200">
-          <h2 className="text-2xl font-semibold mb-2 font-anton">{post.name.replace('.md', '')}</h2>
-          {/* Render parsed HTML content */}
-          <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
-        </div>
-      ))}
+    <div className="mb-8 font-suse">
+      {/* Heading for Latest News */}
+      <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide	">Latest News</h2>
+      
+      {/* Grid of Blog Post Widgets */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {posts.map((post, index) => (
+          <div key={index} className="bg-zinc-800 text-white p-6 rounded-lg shadow-lg hover:bg-zinc-700 transition duration-200">
+            <h2 className="text-2xl font-semibold mb-2 font-SUSE">{post.name.replace('.md', '')}</h2>
+            {/* Render parsed HTML content */}
+            <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-export default BlogPostWidgets;
+export default Blogs;

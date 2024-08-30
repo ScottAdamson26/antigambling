@@ -6,10 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customDark: '#1F1E25',
+        customDark: '#1C1A3E',
+        customPurple: '#24224A',
+        lightPurple: '#1C1A3E',
       },
       fontFamily: {
-        anton: ['Anton', 'sans-serif'],
+        suse: ['SUSE', 'sans-serif'],
       },
     },
   },
