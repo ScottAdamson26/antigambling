@@ -17,7 +17,7 @@ function DesktopNav() {
     <>
       {/* Top Navigation */}
       <div className="sticky top-0 w-full pl-6 pr-32 py-4 bg-customDark text-white shadow-md flex justify-between items-center z-20">
-        <h1 className="text-xl ml-8 font-bold font-suse">Anti Gambling Gambling Club</h1>
+        <h1 className="text-xl ml-2 font-bold font-suse">Anti Gambling Gambling Club</h1>
         <Link 
           to="/bonuses" 
           className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
