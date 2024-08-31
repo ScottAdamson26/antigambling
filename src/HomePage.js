@@ -5,7 +5,7 @@ import Blogs from './Blogs';
 
 function HomePage() {
   return (
-    <div className="w-full mx-auto p-4 md:p-8 bg-customDark">
+    <div className="w-full mx-auto bg-customDark">
       <Feature />
       <Showcase />
       

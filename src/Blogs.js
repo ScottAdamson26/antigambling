@@ -40,7 +40,7 @@ function Blogs() {
   }, []);
 
   return (
-    <div className="mb-8 font-bold text-xl">
+    <div className="mb-8 font-bold text-xl font-suse">
       {/* Heading for Latest News */}
       <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide">Latest News</h2>
 

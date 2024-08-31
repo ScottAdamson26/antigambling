@@ -1,14 +1,12 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
-
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
 
 function App() {
   return (
-    <div className="bg-customDark min-h-screen font-SUSE">
+    <div className="bg-customDark h-screen w-screen overflow-hidden font-suse">
       <Router>
         {/* Mobile Navigation */}
         <div className="md:hidden">
@@ -20,12 +18,18 @@ function App() {
           <DesktopNav />
         </div>
 
-        {/* Page Content */}
-        <div className="md:ml-64 lg:ml-64 p-4">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-           
-          </Routes>
+        {/* Main content area with a single scroll */}
+        <div className="flex flex-col md:flex-row h-full">
+          {/* Sidebar Spacer for Desktop */}
+          <div className="hidden md:block w-64"></div>
+
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto py-12 px-20">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              {/* Add other routes here */}
+            </Routes>
+          </div>
         </div>
       </Router>
     </div>
