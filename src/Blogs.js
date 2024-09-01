@@ -10,21 +10,24 @@ function Blogs() {
         const response = await fetch('https://api.github.com/repos/ScottAdamson26/antigambling/contents/content/posts');
         const files = await response.json();
 
-        // Step 2: Fetch the content of each file and extract title, date, and blog text
+        // Step 2: Fetch the content of each file and extract title, date, blog text, and cover image
         const postsData = await Promise.all(files.map(async (file) => {
           const fileResponse = await fetch(file.download_url);
           const fileContent = await fileResponse.text();
 
-          // Updated regex to correctly capture the title only
+          // Regex to extract title, date, and cover image
           const titleMatch = fileContent.match(/^title:\s*"?([^"\n\r]+)"?\s*$/im);
           const dateMatch = fileContent.match(/^date:\s*(.*)$/im);
+          const coverImageMatch = fileContent.match(/^cover_image:\s*"?([^"\n\r]+)"?\s*$/im);
           const blogText = fileContent.split('---')[2]?.trim();
 
           const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.md', '');
+          const coverImage = coverImageMatch ? coverImageMatch[1].trim() : null;
 
           return {
             title: title,
             date: dateMatch ? new Date(dateMatch[1].trim()).toLocaleDateString() : '',
+            coverImage: coverImage,
             blogText: blogText || ''
           };
         }));
@@ -49,10 +52,15 @@ function Blogs() {
         {posts.map((post, index) => (
           <div
             key={index}
-            className="p-4 bg-gray-800 rounded-lg shadow-md text-white flex items-end pt-8 pr-6"
-            style={{ minHeight: '100px' }} // Ensure minimum height for better visual consistency
+            className="p-4 bg-gray-800 rounded-lg shadow-md text-white flex flex-col items-end justify-end pt-8 pr-6"
+            style={{
+              minHeight: '100px',
+              backgroundImage: post.coverImage ? `url(${post.coverImage})` : null,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
           >
-            <p className="mb-0">{post.title}</p>
+            <p className="mb-0 bg-opacity-75 bg-gray-800 p-2 rounded">{post.title}</p>
           </div>
         ))}
       </div>

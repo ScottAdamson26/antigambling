@@ -15,7 +15,7 @@
     <!-- Load Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-    <!-- Redirect to /admin after login -->
+    <!-- Initialize Netlify Identity Widget -->
     <script>
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", (user) => {
@@ -23,6 +23,13 @@
                     window.netlifyIdentity.on("login", () => {
                         document.location.href = "/admin/";
                     });
+                }
+            });
+            // Customize the login provider buttons
+            window.netlifyIdentity.on("open", () => {
+                const loginButton = document.querySelector('.provider-button.google');
+                if (loginButton) {
+                    loginButton.textContent = "Login with Google";
                 }
             });
         }
