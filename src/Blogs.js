@@ -49,7 +49,7 @@ function Blogs() {
           <Link
             to={`/blog/${post.slug}`}
             key={index}
-            className="bg-gray-800 rounded-lg shadow-md overflow-hidden group"
+            className="bg-navBg rounded-lg shadow-md overflow-hidden group"
           >
             {/* Image Section */}
             {post.coverImage && (
