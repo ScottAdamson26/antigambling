@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust scrollbar width */
+  height: 8px; /* Adjust scrollbar height for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #3b1b5d; /* Dark purple background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b3ca1; /* Lighter purple scrollbar */
+  border-radius: 10px; /* Rounded corners */
+  transition: background 0.3s ease; /* Smooth transition on hover */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8e4fd4; /* Slightly lighter purple on hover */
+}
+
+::-webkit-scrollbar-button {
+  display: none; /* Hides the buttons */
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent; /* Hides the corner where vertical and horizontal scrollbars meet */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6b3ca1 #3b1b5d;
+}
