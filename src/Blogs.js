@@ -6,7 +6,7 @@ function Blogs() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        // Step 1: Fetch the list of files from the GitHub repository
+        // Step 1: Fetch the list of files from the GitHub repository yes
         const response = await fetch('https://api.github.com/repos/ScottAdamson26/antigambling/contents/content/posts');
         const files = await response.json();
 
