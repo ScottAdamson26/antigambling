@@ -15,7 +15,7 @@
 ::-webkit-scrollbar-thumb {
   background: #6b3ca1; /* Lighter purple scrollbar */
   border-radius: 10px; /* Rounded corners */
-  transition: background 0.3s ease; /* Smooth transition on hover */s
+  transition: background 0.3s ease; /* Smooth transition on hover */
 }
 
 ::-webkit-scrollbar-thumb:hover {
