@@ -10,7 +10,7 @@ function Showcase() {
   return (
     <div className="mb-8 font-suse">
       {/* Heading for Best Promotions */}
-      <h2 className="text-lg font-extrabold text-white mb-4 uppercase tracking-wide">Best Promotions</h2>
+      <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide">TRUSTED CASINOS</h2>
       
       {/* Grid of Showcase Items */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

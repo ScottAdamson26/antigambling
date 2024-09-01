@@ -6,7 +6,7 @@ import DesktopNav from './DesktopNav';
 
 function App() {
   return (
-    <div className="bg-customDark h-screen w-screen overflow-hidden font-suse">
+    <div className="bg-background h-screen w-screen overflow-hidden font-suse">
       <Router>
         {/* Mobile Navigation */}
         <div className="md:hidden">
@@ -24,7 +24,7 @@ function App() {
           <div className="hidden md:block w-64"></div>
 
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto py-12 px-20">
+          <div className="flex-1 overflow-y-auto pb-12 pt-8 px-20 font-suse">
             <Routes>
               <Route path="/" element={<HomePage />} />
               {/* Add other routes here */}

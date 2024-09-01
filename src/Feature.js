@@ -2,7 +2,7 @@ import React from "react";
 
 function Feature() {
   return (
-    <div className="bg-gradient-to-r from-purple-800 to-purple-600 text-white p-8 rounded-lg shadow-lg mb-8 font-suse">
+    <div className="bg-gradient-to-br from-violet-400 to-purple-700 text-white p-8 rounded-lg shadow-lg mb-8 font-suse">
       <h1 className="text-4xl font-bold mb-4 font-SUSE">
         GET THE BEST BONUSES NOW!
       </h1>
