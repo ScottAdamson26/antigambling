@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleRight } from '@fortawesome/free-regular-svg-icons';
 
 function Blogs() {
   const [posts, setPosts] = useState([]);
@@ -40,11 +42,17 @@ function Blogs() {
 
   return (
     <div className="mb-16 font-bold text-xl font-suse">
-      {/* Heading for Latest News */}
-      <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide">Latest News</h2>
+      {/* Heading for Latest News and Icon */}
+      <div className="flex justify-between items-center mb-4 pr-4">
+        <h2 className="text-base font-extrabold text-white uppercase tracking-wide">Latest News</h2>
+        {/* Link to /news with FontAwesome Circle Right Icon */}
+        <Link to="/news">
+          <FontAwesomeIcon icon={faCircleRight} className="text-navPurple text-2xl hover:text-orange-600" />
+        </Link>
+      </div>
 
       {/* Grid of Blog Post Widgets */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {posts.map((post, index) => (
           <Link
             to={`/blog/${post.slug}`}

@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faGift,
-  faInfoCircle,
   faEnvelope,
+  faEarthAmericas,
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons"; // Import the Discord icon
 import logo from "../src/logo.png"; // Import the logo
@@ -13,7 +13,7 @@ import logo from "../src/logo.png"; // Import the logo
 const navItems = [
   { name: "Home", path: "/", icon: faHome },
   { name: "Bonuses", path: "/bonuses", icon: faGift },
-  { name: "About", path: "/about", icon: faInfoCircle },
+  { name: "News", path: "/news", icon: faEarthAmericas },
   { name: "Contact", path: "/contact", icon: faEnvelope },
 ];
 
