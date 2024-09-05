@@ -11,9 +11,10 @@ module.exports = {
         lightPurple: '#1C1A3E',
         customGradientTop: '#2B2361',  // Add your new colors here
         customGradientBottom: '#3C3374',
-        navPurple: '#1E173F',
-        navBg: '#11112B',
-        background: '#090C23',
+        navPurple: '#EB8E2A',
+        navBg: '#19191A',
+        background: '#121212',
+        lightOrange: '#FF9A2E',
       },
       fontFamily: {
         suse: ['SUSE', 'sans-serif'],

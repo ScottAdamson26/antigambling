@@ -39,7 +39,7 @@ function Blogs() {
   }, []);
 
   return (
-    <div className="mb-8 font-bold text-xl font-suse">
+    <div className="mb-16 font-bold text-xl font-suse">
       {/* Heading for Latest News */}
       <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide">Latest News</h2>
 
@@ -49,7 +49,7 @@ function Blogs() {
           <Link
             to={`/blog/${post.slug}`}
             key={index}
-            className="bg-navBg rounded-lg shadow-md overflow-hidden group"
+            className="bg-navBg rounded-lg shadow-md overflow-hidden group outline-dashed outline-1 outline-offset-4 outline-navPurple"
           >
             {/* Image Section */}
             {post.coverImage && (
