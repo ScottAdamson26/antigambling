@@ -29,7 +29,7 @@ function Showcase() {
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
-            {/* Content of the Inner Widget */}
+            {/* Content of the Inner Widge */}
             <div className="text-center text-white m-10 mt-4">
               <p className="text-3xl tracking-wide text-gGreen font-bold text-glow">
                 4.5/5
