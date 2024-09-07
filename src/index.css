@@ -28,3 +28,20 @@
 ::-webkit-scrollbar-corner {
   background: transparent; /* Hides the corner where vertical and horizontal scrollbars meet */
 }
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+  }
+}
+
+@layer utilities {
+  .text-glow-blue {
+    text-shadow: 0 0 10px rgba(20, 117, 225, 0.4);
+  }
+}
+
+@layer utilities {
+  .text-glow-red {
+    text-shadow: 0 0 10px rgba(254, 97, 124, 0.4);
+  }
+}

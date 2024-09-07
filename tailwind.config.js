@@ -15,6 +15,13 @@ module.exports = {
         navBg: '#19191A',
         background: '#121212',
         lightOrange: '#FF9A2E',
+        gamdomGreen: '#00b861',
+        gamdomGrey: '#131a22',
+        gGreen: '#00de75',
+        stake: '#1475e1',
+        stakeDark: '#0b53a2',
+        redcsgo: '#fe617c',
+        darkred: '#bf223d',
       },
       fontFamily: {
         suse: ['SUSE', 'sans-serif'],
