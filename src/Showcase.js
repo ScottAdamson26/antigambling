@@ -19,7 +19,6 @@ function Showcase() {
         {/* Gamdom Crazy Widget */}
         <div className="relative bg-gradient-to-br from-gamdomGrey to bg-gamdomGreen text-white pt-20 rounded-lg shadow-lg hover:opacity-95 hover:cursor-pointer transition duration-200">
           {/* Inner Widget */}
-          <div className=" w-full h-full translate-y-2 pb-0 relative bg-gGreen rounded-lg ">
 
           <div className="bg-navBg w-full h-full rounded-lg pt-12 pb-0 relative">
             {/* Profile Picture */}
@@ -81,7 +80,6 @@ function Showcase() {
                 </button>
               </div>
             </div>
-          </div>
           </div>
         </div>
 
