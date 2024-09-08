@@ -3,7 +3,7 @@ import AntiGambachar from "./antigambachar.png"; // Adjust the import based on y
 
 function Feature() {
   return (
-    <div className="relative bg-[url('./sky.png')] bg-cover bg-center text-white rounded-lg shadow-lg mb-8 font-suse h-80 flex flex-col  items-center mt-6 overflow-visible">
+    <div className="relative bg-[url('./sky.png')] bg-cover bg-center text-white rounded-lg shadow-lg mb-8 font-suse h-80 flex flex-col  items-center overflow-visible">
       {/* Left side content */}
       <div className="flex flex-col justify-center items-center h-full pl-8 w-1/2">
         <h1 className="text-4xl font-bold mb-4">GET THE BEST BONUSES NOW!</h1>
