@@ -1,5 +1,4 @@
 import React from "react";
-import AntiGambachar from "./antigambachar.png"; // Adjust the import based on your folder structure
 
 function Feature() {
   return (
