@@ -3,7 +3,7 @@ import gamdom from "./gamdomlogo.png";
 import stake from "./stakelogo.png";
 import csgo from "./cslogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as faSolidStar, faStarHalfAlt, faGift } from "@fortawesome/free-solid-svg-icons"; // Import solid star for filled stars
+import { faStar as faSolidStar, faStarHalfAlt, faGift, faMoneyBillTrendUp } from "@fortawesome/free-solid-svg-icons"; // Import solid star for filled stars
 import { faStar as faRegularStar } from "@fortawesome/free-regular-svg-icons"; // Import regular star for outlined star
 
 function Showcase() {
@@ -64,8 +64,8 @@ function Showcase() {
 
                 {/* Stat 3 */}
                 <div className="flex justify-center items-center">
-                  <FontAwesomeIcon icon={faSolidStar} className="text-white mr-2" />
-                  <p className="text-lg font-semibold">Stat 3</p>
+                  <FontAwesomeIcon icon={faMoneyBillTrendUp} className="text-white mr-2" />
+                  <p className="text-base font-semibold">10% DEPOSIT BONUS</p>
                 </div>
               </div>
 
@@ -130,8 +130,8 @@ function Showcase() {
 
                 {/* Stat 3 */}
                 <div className="flex justify-center items-center">
-                  <FontAwesomeIcon icon={faSolidStar} className="text-white mr-2" />
-                  <p className="text-lg font-semibold">Stat 3</p>
+                  <FontAwesomeIcon icon={faMoneyBillTrendUp} className="text-white mr-2" />
+                  <p className="text-base font-semibold">10% DEPOSIT BONUS</p>
                 </div>
               </div>
 
@@ -196,8 +196,8 @@ function Showcase() {
 
                 {/* Stat 3 */}
                 <div className="flex justify-center items-center">
-                  <FontAwesomeIcon icon={faSolidStar} className="text-white mr-2" />
-                  <p className="text-lg font-semibold">Stat 3</p>
+                  <FontAwesomeIcon icon={faMoneyBillTrendUp} className="text-white mr-2" />
+                  <p className="text-base font-semibold">10% DEPOSIT BONUS</p>
                 </div>
               </div>
 
