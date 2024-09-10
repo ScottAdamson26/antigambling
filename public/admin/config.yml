@@ -26,3 +26,4 @@ collections:
       - { label: "Video Title", name: "title", widget: "string" }
       - { label: "Video URL", name: "url", widget: "string" }
       - { label: "Posted Date", name: "date", widget: "datetime" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" } # New field for thumbnail image
