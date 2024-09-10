@@ -14,5 +14,15 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Cover Image", name: "cover_image", widget: "image" } # New field for the cover image
+      - { label: "Cover Image", name: "cover_image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Video Title", name: "title", widget: "string" }
+      - { label: "Video URL", name: "url", widget: "string" }
+      - { label: "Posted Date", name: "date", widget: "datetime" }
