@@ -28,14 +28,14 @@ function DesktopNav() {
         {/* Logo Image */}
         
         {/* 3D Join the Club Button */}
-        <div className="relative">
+        <div className="relative group"> {/* Add group class to the container for hover effect */}
           {/* 3D Shadow Layer */}
-          <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg"></div>
+          <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
           
           {/* Actual Button */}
           <Link
             to="/bonus"
-            className="relative flex items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out"
+            className="relative flex items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >
             <FontAwesomeIcon icon={faDiscord} className="w-5 h-5" />{" "}
             {/* Discord Icon */}
