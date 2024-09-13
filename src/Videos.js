@@ -88,7 +88,7 @@ function Videos() {
                 </p>
               </div>
               
-              {/* Date Section */}
+              {/* Date Section 2*/}
               <div className="mt-2">
                 <p className="text-white text-opacity-50 text-sm">
                   {video.date ? format(video.date, 'MMMM dd, yyyy') : 'Date not available'}
