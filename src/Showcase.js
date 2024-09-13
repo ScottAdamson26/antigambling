@@ -35,7 +35,7 @@ function Showcase() {
               />
             </div>
             {/* Content */}
-            <div className="text-center text-white mb-10 mx-20 mt-4">
+            <div className="text-center text-white mb-10 mx-10 3xl:mx-20 mt-6">
               <p className="text-3xl tracking-wide text-gGreen font-bold text-glow">
                 4.5/5
               </p>
@@ -76,8 +76,8 @@ function Showcase() {
                 </div>
               </div>
 
-{/* Two Buttons: Read Review and Get Bonus */}
-<div className="flex justify-between space-x-2 mt-6">
+              {/* Two Buttons: Read Review and Get Bonus */}
+              <div className="flex justify-between space-x-2 mt-6">
                 {/* Read Review Button */}
                 <div className="relative w-1/2">
                   <div className="absolute inset-x-0 bottom-0 h-10 bg-green-600 rounded-lg"></div>
@@ -110,7 +110,7 @@ function Showcase() {
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
-            <div className="text-center text-white mb-10 mx-20 mt-4">
+            <div className="text-center text-white mb-10 mx-10 3xl:mx-20 mt-4">
               <p className="text-3xl tracking-wide text-stake font-bold text-glow-blue">
                 4.5/5
               </p>
@@ -185,7 +185,7 @@ function Showcase() {
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
-            <div className="text-center text-white mb-10 mx-20 mt-4">
+            <div className="text-center text-white mb-10 mx-10 3xl:mx-20 mt-4">
               <p className="text-3xl tracking-wide text-redcsgo font-bold text-glow-red">
                 4/5
               </p>

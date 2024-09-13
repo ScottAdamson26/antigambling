@@ -6,6 +6,7 @@ import {
   faGift,
   faEnvelope,
   faEarthAmericas,
+  faVideo
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons"; // Import the Discord icon
 import logo from "../src/logo.png"; // Import the logo
@@ -14,6 +15,7 @@ const navItems = [
   { name: "Home", path: "/", icon: faHome },
   { name: "Bonuses", path: "/bonuses", icon: faGift },
   { name: "News", path: "/news", icon: faEarthAmericas },
+  { name: "Videos", path: "/videos", icon: faVideo},
   { name: "Contact", path: "/contact", icon: faEnvelope },
 ];
 

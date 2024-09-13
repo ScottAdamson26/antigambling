@@ -35,7 +35,10 @@ function Videos() {
           };
         }));
 
-        setVideos(videosData);
+        // Sort videos by date, newest first
+        const sortedVideos = videosData.sort((a, b) => (b.date - a.date));
+
+        setVideos(sortedVideos);
       } catch (error) {
         console.error('Error fetching videos:', error);
       }
