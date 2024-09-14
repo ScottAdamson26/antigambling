@@ -1,0 +1,8 @@
+[build]
+  publish = "build" # The folder where your built React app gets deployed, typically "build" for create-react-app
+  functions = "netlify/functions" # Path to the Netlify Functions directory where your serverless functions are located
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
