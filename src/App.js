@@ -5,7 +5,7 @@ import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
 import BlogPost from './BlogPost';
 import News from './News'; 
-
+import Profile from './Profile';
 function App() {
   return (
     <div className="bg-background h-screen w-screen overflow-hidden font-suse">
@@ -30,7 +30,8 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/news" element={<News />} /> {/* News Page */}
+              <Route path="/news" element={<News />} /> 
+              <Route path="/profile" element={<Profile />} /> 
 
               {/* Add other routes here */}
             </Routes>

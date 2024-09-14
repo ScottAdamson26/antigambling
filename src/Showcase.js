@@ -17,7 +17,7 @@ function Showcase() {
     <div className="mb-8 font-suse">
       {/* Heading for Trusted Casinos */}
       <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide">
-        TRUSTED CASINOS
+CASINO REVIEWS
       </h2>
 
       {/* Grid of Showcase Items */}
