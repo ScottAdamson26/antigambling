@@ -33,7 +33,7 @@ exports.handler = async function (event, context) {
 
     const userData = userResponse.data;
 
-    // You can now store this user data in a session or return it to the frontend
+    // You can now store this user data in a session or return it to the fronten
     return {
       statusCode: 200,
       body: JSON.stringify({
