@@ -9,7 +9,7 @@ module.exports = {
         customDark: '#1C1A3E',
         customPurple: '#24224A',
         lightPurple: '#1C1A3E',
-        customGradientTop: '#2B2361',  // Add your new colors here
+        customGradientTop: '#2B2361',
         customGradientBottom: '#3C3374',
         navPurple: '#EB8E2A',
         navBg: '#19191A',
@@ -25,6 +25,14 @@ module.exports = {
       },
       fontFamily: {
         suse: ['SUSE', 'sans-serif'],
+      },
+      screens: {
+        'lg': '1440px',
+        // Existing lg breakpoint for 1440px
+
+        // Custom breakpoint at 1350px
+        'xl2': '1350px',
+        // => @media (min-width: 1350px) { ... }
       },
     },
   },

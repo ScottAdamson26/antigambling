@@ -35,7 +35,7 @@ function Showcase() {
               />
             </div>
             {/* Content */}
-            <div className="text-center text-white mb-10 mx-10 3xl:mx-20 mt-6">
+            <div className="text-center text-white mb-10 mx-8 lg:mx-10 3xl:mx-20 mt-4">
               <p className="text-3xl tracking-wide text-gGreen font-bold text-glow">
                 4.5/5
               </p>
@@ -77,11 +77,11 @@ function Showcase() {
               </div>
 
               {/* Two Buttons: Read Review and Get Bonus */}
-              <div className="flex justify-between space-x-2 mt-6">
+              <div className="flex justify-between space-x-2 mt-6 text-sm 2xl:text-base">
                 {/* Read Review Button */}
                 <div className="relative w-1/2">
                   <div className="absolute inset-x-0 bottom-0 h-10 bg-green-600 rounded-lg"></div>
-                  <button className="relative w-full py-2 bg-navBg text-white text-base font-bold border-2 border-gGreen rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
+                  <button className="relative w-full py-2 bg-navBg text-white  font-bold border-2 border-gGreen rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
                     <FontAwesomeIcon icon={faBook} className="mr-2" />
                     Read Review
                   </button>
@@ -90,7 +90,7 @@ function Showcase() {
                 {/* Get Bonus Button */}
                 <div className="relative w-1/2">
                   <div className="absolute inset-x-0 bottom-0 h-10 bg-green-600 rounded-lg"></div>
-                  <button className="relative w-full py-2 bg-gGreen text-white text-base font-bold border-2 border-gGreen rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
+                  <button className="relative w-full py-2 bg-gGreen text-white  font-bold border-2 border-gGreen rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
                     <FontAwesomeIcon icon={faGift} className="mr-2" />
                     Get Bonus
                   </button>
@@ -110,7 +110,7 @@ function Showcase() {
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
-            <div className="text-center text-white mb-10 mx-10 3xl:mx-20 mt-4">
+            <div className="text-center text-white mb-10 mx-8 lg:mx-10 3xl:mx-20 mt-4">
               <p className="text-3xl tracking-wide text-stake font-bold text-glow-blue">
                 4.5/5
               </p>
@@ -155,17 +155,17 @@ function Showcase() {
                   <p className="text-base font-semibold">10% DEPOSIT BONUS</p>
                 </div>
               </div>
-              <div className="flex justify-between space-x-2 mt-6">
+              <div className="flex justify-between space-x-2 mt-6 text-sm 2xl:text-base">
                 <div className="relative w-1/2">
                   <div className="absolute inset-x-0 bottom-0 h-10 bg-stakeDark rounded-lg"></div>
-                  <button className="relative w-full py-2 bg-navBg text-white text-base font-bold border-2 border-stake rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
+                  <button className="relative w-full py-2 bg-navBg text-white font-bold border-2 border-stake rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
                     <FontAwesomeIcon icon={faBook} className="mr-2" />
                     Read Review
                   </button>
                 </div>
                 <div className="relative w-1/2">
                   <div className="absolute inset-x-0 bottom-0 h-10 bg-stakeDark rounded-lg"></div>
-                  <button className="relative w-full py-2 bg-stake text-white text-base border-2 border-stake font-bold rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
+                  <button className="relative w-full py-2 bg-stake text-white  border-2 border-stake font-bold rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
                     <FontAwesomeIcon icon={faGift} className="mr-2" />
                     Get Bonus
                   </button>
@@ -185,7 +185,7 @@ function Showcase() {
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
-            <div className="text-center text-white mb-10 mx-10 3xl:mx-20 mt-4">
+            <div className="text-center text-white mb-10 mx-8 lg:mx-10 3xl:mx-20 mt-4">
               <p className="text-3xl tracking-wide text-redcsgo font-bold text-glow-red">
                 4/5
               </p>
@@ -235,17 +235,17 @@ function Showcase() {
                 </div>
               </div>
 
-              <div className="flex justify-between space-x-2 mt-6">
+              <div className="flex justify-between space-x-2 mt-6 text-sm 2xl:text-base">
                 <div className="relative w-1/2">
                   <div className="absolute inset-x-0 bottom-0 h-10 bg-darkred rounded-lg"></div>
-                  <button className="relative w-full py-2 bg-navBg text-white text-base font-bold border-2 border-redcsgo rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
+                  <button className="relative w-full py-2 bg-navBg font-bold text-whitefont-bold border-2 border-redcsgo rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
                     <FontAwesomeIcon icon={faBook} className="mr-2" />
                     Read Review
                   </button>
                 </div>
                 <div className="relative w-1/2">
                   <div className="absolute inset-x-0 bottom-0 h-10 bg-darkred rounded-lg"></div>
-                  <button className="relative w-full py-2 bg-redcsgo text-white text-base font-bold border-2 border-redcsgo rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
+                  <button className="relative w-full py-2 bg-redcsgo text-white  font-bold border-2 border-redcsgo rounded-lg transform -translate-y-1 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 ease-in-out">
                     <FontAwesomeIcon icon={faGift} className="mr-2" />
                     Get Bonus
                   </button>

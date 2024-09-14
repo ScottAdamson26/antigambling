@@ -48,7 +48,7 @@ function Videos() {
   }, []);
 
   return (
-    <div className="mb-16 font-bold text-xl font-suse">
+    <div className="font-bold mb-4 text-xl font-suse">
       {/* Heading for Latest Videos */}
       <div className="flex justify-between items-center mb-4 pr-4">
         <h2 className="text-base font-extrabold text-white uppercase tracking-wide">Latest Videos</h2>
@@ -67,12 +67,12 @@ function Videos() {
             {/* Thumbnail Section */}
             {video.thumbnail ? (
               <div
-                className="relative w-full pb-[56.25%] overflow-hidden rounded-lg transform transition-transform duration-500 ease-in-out group-hover:scale-105"
+                className="relative w-full pb-[56.25%] overflow-hidden transform transition-transform duration-500 ease-in-out group-hover:scale-105"
               >
                 <img
                   src={video.thumbnail}
                   alt={video.title}
-                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                  className="absolute inset-0 w-full h-full object-cover "
                 />
               </div>
             ) : (

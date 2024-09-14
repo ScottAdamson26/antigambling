@@ -5,12 +5,12 @@ import Blogs from './Blogs';
 import Videos from './Videos';
 function HomePage() {
   return (
-    <div className="w-full mx-auto bg-background">
+    <div className="w-full mx-auto bg-background pb-20">
       <Feature />
       <Showcase />
-      
-      <Blogs />
       <Videos />
+
+      <Blogs />
     </div>
   );
 }

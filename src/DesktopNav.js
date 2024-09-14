@@ -6,16 +6,18 @@ import {
   faGift,
   faEnvelope,
   faEarthAmericas,
-  faVideo
+  faVideo,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons"; // Import the Discord icon
 import logo from "../src/logo.png"; // Import the logo
 
 const navItems = [
   { name: "Home", path: "/", icon: faHome },
-  { name: "Bonuses", path: "/bonuses", icon: faGift },
-  { name: "News", path: "/news", icon: faEarthAmericas },
+  { name: "Reviews", path: "/reviews", icon: faStar },
   { name: "Videos", path: "/videos", icon: faVideo},
+  { name: "Offers", path: "/offers", icon: faGift },
+  { name: "Strats", path: "/strats", icon: faEarthAmericas },
   { name: "Contact", path: "/contact", icon: faEnvelope },
 ];
 

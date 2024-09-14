@@ -26,7 +26,7 @@ function App() {
           <div className="hidden md:block w-56"></div>
 
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto pb-12 pt-8 px-10 font-suse">
+          <div className="flex-1 overflow-y-auto pb-12 pt-8 md:pl-10 md:pr-4 2xl:px-10 font-suse">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
