@@ -33,15 +33,14 @@ exports.handler = async function (event, context) {
 
     const userData = userResponse.data;
 
-    // You can now store this user data in a session or return it to the fronten
+    // Redirect to homepage with user data in query string
+    const redirectUrl = `https://antigambling.netlify.app/?username=${userData.username}&avatar=${userData.avatar}&discriminator=${userData.discriminator}&id=${userData.id}`;
+
     return {
-      statusCode: 200,
-      body: JSON.stringify({
-        username: userData.username,
-        avatar: userData.avatar,
-        discriminator: userData.discriminator,
-        id: userData.id,
-      }),
+      statusCode: 302,
+      headers: {
+        Location: redirectUrl,
+      },
     };
   } catch (error) {
     console.error('Error during Discord OAuth callback:', error);
