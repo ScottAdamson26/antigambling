@@ -16,16 +16,28 @@ export const AuthProvider = ({ children }) => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const user = JSON.parse(storedUser);
+      console.log("User found in localStorage: ", user);
+
       setAuthState({
         username: user.username,
         avatar: user.avatar,
         isLoggedIn: true,
       });
+
+      console.log("Auth state updated from localStorage:", {
+        username: user.username,
+        avatar: user.avatar,
+        isLoggedIn: true,
+      });
+    } else {
+      console.log("No user found in localStorage.");
     }
   }, []);
 
   // Function to log in the user and store the data in context and localStorage
   const loginUser = (username, avatar) => {
+    console.log("Logging in user:", { username, avatar });
+    
     setAuthState({
       username: username,
       avatar: avatar,
@@ -34,10 +46,13 @@ export const AuthProvider = ({ children }) => {
 
     // Save the user data to localStorage to persist it
     localStorage.setItem('user', JSON.stringify({ username, avatar }));
+    console.log("User data saved to localStorage.");
   };
 
   // Function to log out the user and clear the data from context and localStorage
   const logoutUser = () => {
+    console.log("Logging out user.");
+
     setAuthState({
       username: null,
       avatar: null,
@@ -46,6 +61,7 @@ export const AuthProvider = ({ children }) => {
 
     // Clear the user data from localStorage
     localStorage.removeItem('user');
+    console.log("User data removed from localStorage.");
   };
 
   return (
