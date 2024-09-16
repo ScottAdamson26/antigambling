@@ -3,13 +3,7 @@ const axios = require('axios');
 exports.handler = async function (event, context) {
   const clientId = process.env.DISCORD_CLIENT_ID;
   const clientSecret = process.env.DISCORD_CLIENT_SECRET;
-
-  // Use localhost for development and the Netlify domain for production
-  const redirectUri =
-    process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3000/.netlify/functions/discord-callback' // Local development URL
-      : process.env.DISCORD_REDIRECT_URI; // Production URL from environment variables
-
+  const redirectUri = process.env.DISCORD_REDIRECT_URI;
   const code = event.queryStringParameters.code;
 
   try {
@@ -40,12 +34,7 @@ exports.handler = async function (event, context) {
     const userData = userResponse.data;
 
     // Redirect to homepage with user data in query string
-    const redirectUrl =
-      process.env.NODE_ENV === 'development'
-        ? `http://localhost:3000/?username=${userData.username}&avatar=${userData.avatar}&discriminator=${userData.discriminator}&id=${userData.id}` // Local development redirect
-        : `https://antigambling.netlify.app/?username=${userData.username}&avatar=${userData.avatar}&discriminator=${userData.discriminator}&id=${userData.id}`; // Production redirect
-
-    console.log('Redirecting to:', redirectUrl);
+    const redirectUrl = `https://antigambling.netlify.app/?username=${userData.username}&avatar=${userData.avatar}&discriminator=${userData.discriminator}&id=${userData.id}`;
 
     return {
       statusCode: 302,
