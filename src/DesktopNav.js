@@ -17,7 +17,7 @@ const navItems = [
 
 function DesktopNav() {
   const location = useLocation(); // Get the current path
-  const { isLoggedIn, username, avatar } = useContext(AuthContext); // Access the AuthContext
+  const { isLoggedIn, username, avatar, id } = useContext(AuthContext); // Access the AuthContext, include the user ID
 
   return (
     <>
@@ -29,7 +29,7 @@ function DesktopNav() {
           // If the user is logged in, show the profile info
           <div className="flex items-center space-x-3">
             <img
-              src={`https://cdn.discordapp.com/avatars/${avatar}.png`}
+              src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} // Use both the user ID and avatar hash
               alt="Profile"
               className="w-10 h-10 rounded-full"
             />

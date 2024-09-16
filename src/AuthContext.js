@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
     username: null,
     avatar: null,
+    id: null,  // Added user ID to state
     isLoggedIn: false,
   });
 
@@ -21,12 +22,14 @@ export const AuthProvider = ({ children }) => {
       setAuthState({
         username: user.username,
         avatar: user.avatar,
+        id: user.id,  // Added user ID to state from localStorage
         isLoggedIn: true,
       });
 
       console.log("Auth state updated from localStorage:", {
         username: user.username,
         avatar: user.avatar,
+        id: user.id,
         isLoggedIn: true,
       });
     } else {
@@ -35,17 +38,18 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // Function to log in the user and store the data in context and localStorage
-  const loginUser = (username, avatar) => {
-    console.log("Logging in user:", { username, avatar });
+  const loginUser = (username, avatar, id) => {
+    console.log("Logging in user:", { username, avatar, id });
     
     setAuthState({
       username: username,
       avatar: avatar,
+      id: id,  // Store the user ID
       isLoggedIn: true,
     });
 
     // Save the user data to localStorage to persist it
-    localStorage.setItem('user', JSON.stringify({ username, avatar }));
+    localStorage.setItem('user', JSON.stringify({ username, avatar, id }));
     console.log("User data saved to localStorage.");
   };
 
@@ -56,6 +60,7 @@ export const AuthProvider = ({ children }) => {
     setAuthState({
       username: null,
       avatar: null,
+      id: null,  // Clear the user ID
       isLoggedIn: false,
     });
 
