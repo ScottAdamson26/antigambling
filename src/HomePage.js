@@ -13,7 +13,7 @@ function useQuery() {
 
 function HomePage() {
   const query = useQuery();
-  const { loginUser, isLoggedIn } = useContext(AuthContext); // Access loginUser from AuthContext
+  const { loginUser } = useContext(AuthContext); // Access loginUser from AuthContext
 
   useEffect(() => {
     // Get the username and avatar from the query parameters
@@ -34,17 +34,7 @@ function HomePage() {
 
   return (
     <div className="w-full mx-auto bg-background pb-20">
-      {/* Optionally display user info if logged in */}
-      {isLoggedIn ? (
-        <div className="text-white text-center py-4">
-          <h1>Welcome back!</h1>
-        </div>
-      ) : (
-        <div className="text-white text-center py-4">
-          <h1>Join the Club!</h1>
-        </div>
-      )}
-
+   
       {/* Render the rest of the homepage components */}
       <Feature />
       <Showcase />
