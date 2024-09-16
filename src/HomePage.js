@@ -21,6 +21,8 @@ function HomePage() {
     const avatar = query.get('avatar');
     const id = query.get('id');
 
+    console.log('Query parameters:', { username, avatar, id }); // Log the query parameters
+
     // If query parameters exist, log the user in
     if (username && avatar && id) {
       console.log('OAuth callback data found in URL:', { username, avatar, id });
@@ -35,7 +37,7 @@ function HomePage() {
       {/* Optionally display user info if logged in */}
       {isLoggedIn ? (
         <div className="text-white text-center py-4">
-          <h1>Welcome back, {username}!</h1>
+          <h1>Welcome back!</h1>
         </div>
       ) : (
         <div className="text-white text-center py-4">
