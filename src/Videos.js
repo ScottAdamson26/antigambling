@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns'; // Import date-fns for date formatting
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faCircleRight } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
 
 function Videos() {
   const [videos, setVideos] = useState([]);
@@ -51,7 +55,11 @@ function Videos() {
     <div className="font-bold mb-4 text-xl font-suse">
       {/* Heading for Latest Videos */}
       <div className="flex justify-between items-center mb-4 pr-4">
-        <h2 className="text-base font-extrabold text-white uppercase tracking-wide">Latest Videos</h2>
+        <h2 className="text-base font-extrabold text-white uppercase tracking-wide">LATEST VIDEOS</h2>
+        {/* Link to /news with FontAwesome Circle Right Icon */}
+        <Link to="/videos">
+          <FontAwesomeIcon icon={faCircleRight} className="text-navPurple text-2xl hover:text-orange-600" />
+        </Link>
       </div>
 
       {/* Grid of Video Widgets */}

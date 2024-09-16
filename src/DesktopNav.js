@@ -30,7 +30,7 @@ function DesktopNav() {
   return (
     <>
       {/* Top Navigation */}
-      <div className="sticky top-0 w-full pl-6 pr-32 py-4 bg-background text-white flex justify-between items-center z-20">
+      <div className="sticky top-0 w-full pl-6 pr-24 py-4 bg-background text-white flex justify-between items-center z-20">
         <img src={logo} alt="Logo" className="h-10 ml-10 mt-2" /> {/* Logo Image */}
         {isLoggedIn ? (
           // If the user is logged in, show the profile info

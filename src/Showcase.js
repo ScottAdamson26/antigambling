@@ -3,22 +3,29 @@ import gamdom from "./gamdomlogo.png";
 import stake from "./stakelogo.png";
 import csgo from "./cslogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom';
+
 import {
   faStar as faSolidStar,
   faStarHalfAlt,
   faGift,
   faBook,
   faMoneyBillTrendUp,
+  
 } from "@fortawesome/free-solid-svg-icons";
-import { faStar as faRegularStar } from "@fortawesome/free-regular-svg-icons"; // Import regular star for outlined star
+import { faStar as faRegularStar, faCircleRight } from "@fortawesome/free-regular-svg-icons"; // Import regular star for outlined star
 
 function Showcase() {
   return (
     <div className="mb-8 font-suse">
       {/* Heading for Trusted Casinos */}
-      <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide">
-CASINO REVIEWS
-      </h2>
+      <div className="flex justify-between items-center mb-4 pr-4">
+        <h2 className="text-base font-extrabold text-white uppercase tracking-wide">CASINO REVIEWS</h2>
+        {/* Link to /news with FontAwesome Circle Right Icon */}
+        <Link to="/reviews">
+          <FontAwesomeIcon icon={faCircleRight} className="text-navPurple text-2xl hover:text-orange-600" />
+        </Link>
+      </div>
 
       {/* Grid of Showcase Items */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
