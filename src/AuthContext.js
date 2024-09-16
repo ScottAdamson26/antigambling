@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
     username: null,
     avatar: null,
-    id: null,  // Added user ID to state
+    id: null,  // Include user ID
     isLoggedIn: false,
   });
 
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
       setAuthState({
         username: user.username,
         avatar: user.avatar,
-        id: user.id,  // Added user ID to state from localStorage
+        id: user.id,  // Set user ID from localStorage
         isLoggedIn: true,
       });
 
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
 
   // Function to log in the user and store the data in context and localStorage
   const loginUser = (username, avatar, id) => {
-    console.log("Logging in user:", { username, avatar, id });
+    console.log("Logging in user:", { username, avatar, id });  // Ensure id is passed correctly
     
     setAuthState({
       username: username,

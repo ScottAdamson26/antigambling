@@ -6,6 +6,7 @@ import Blogs from './Blogs';
 import Videos from './Videos';
 import { AuthContext } from './AuthContext';  // Import the AuthContext
 
+// Helper hook to parse query parameters from the URLimport React, { useEffect, useContext } from 'react';
 // Helper hook to parse query parameters from the URL
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -16,7 +17,7 @@ function HomePage() {
   const { loginUser } = useContext(AuthContext); // Access loginUser from AuthContext
 
   useEffect(() => {
-    // Get the username and avatar from the query parameters
+    // Get the username, avatar, and id from the query parameters
     const username = query.get('username');
     const avatar = query.get('avatar');
     const id = query.get('id');
@@ -26,12 +27,11 @@ function HomePage() {
     // If query parameters exist, log the user in
     if (username && avatar && id) {
       console.log('OAuth callback data found in URL:', { username, avatar, id });
-      loginUser(username, avatar); // Call the loginUser function to save the data
+      loginUser(username, avatar, id); // Pass username, avatar, and id to loginUser in the correct order
     } else {
       console.log('No OAuth callback data found in URL.');
     }
   }, [query, loginUser]);
-
   return (
     <div className="w-full mx-auto bg-background pb-20">
    
