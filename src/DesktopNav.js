@@ -59,42 +59,40 @@ function DesktopNav() {
       </div>
 
       {/* Side Navigation Container */}
-      <div className="fixed font-normal font-suse text-base left-0 top-16 h-[calc(100vh-4rem)] ml-3 py-4 pt-10 w-56 z-10">
-        {/* Wrapper for Navigation Items with Background and Outline */}
-        <div className="bg-navBg p-4 rounded-2xl">
-          <nav className="space-y-4">
-            {navItems.map((item) => {
-              const isActive = location.pathname === item.path;
-              return (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`flex items-center space-x-3 py-1.5 px-3 rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
-                    isActive
-                      ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105"
-                      : "text-gray-300 hover:text-white hover:bg-navPurple hover:scale-105"
-                  }`}
-                >
-                  <div
-                    className={`p-1 rounded-md w-7 h-7 flex items-center justify-center transition-all duration-500 ease-in-out transform ${
-                      isActive ? "text-white scale-110" : "text-gray-300 hover:scale-110"
+      <div className="fixed font-normal font-suse text-base left-0 top-16 h-[calc(100vh-4rem)] ml-3 py-4 pt-10 w-56 z-10 flex flex-col justify-between">
+        <div>
+          {/* Wrapper for Navigation Items with Background and Outline */}
+          <div className="bg-navBg p-4 rounded-2xl">
+            <nav className="space-y-4">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`flex items-center space-x-3 py-1.5 px-3 rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
+                      isActive
+                        ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105"
+                        : "text-gray-300 hover:text-white hover:bg-navPurple hover:scale-105"
                     }`}
                   >
-                    <FontAwesomeIcon icon={item.icon} />
-                  </div>
-                  <span className="text-sm">{item.name}</span>
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
+                    <div
+                      className={`p-1 rounded-md w-7 h-7 flex items-center justify-center transition-all duration-500 ease-in-out transform ${
+                        isActive ? "text-white scale-110" : "text-gray-300 hover:scale-110"
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={item.icon} />
+                    </div>
+                    <span className="text-sm">{item.name}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
 
-        {/* Conditional rendering for Profile and Sign In/Sign Out */}
-        {isLoggedIn ? (
-          <>
-          
-
-            {/* Show the Sign Out button if the user is logged in */}
+          {/* Show the Sign In or Sign Out button */}
+          {isLoggedIn ? (
+            // Sign Out button
             <div className="relative group mt-4">
               <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
 
@@ -108,36 +106,38 @@ function DesktopNav() {
                 </div>
               </button>
             </div>
+          ) : (
+            // Sign In button
+            <div className="relative group mt-4">
+              <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
 
-              {/* Show the Profile button if the user is logged in */}
-              <div className="relative group mt-4">
-              <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-
-              <Link
-                to="/profile" // Link to profile
-                className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-white-500/50 font-medium rounded-lg px-5 py-2.5 text-center"
+              <a
+                href="/api/discord-login" // Discord login link
+                className="relative flex flex-col items-center space-x-2  text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 <div className="space-x-2 flex items-center">
-                  <FontAwesomeIcon icon={faUser} className="text-md" />
-                  <span className="text-sm">Profile</span>
+                  <FontAwesomeIcon icon={faDiscord} className="text-lg" />
+                  <span>Sign In</span>
                 </div>
-              </Link>
+              </a>
             </div>
-          </>
-        ) : (
-          // Show the Sign In button if the user is not logged in
-          <div className="relative group mt-4">
-            <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+          )}
+        </div>
 
-            <a
-              href="/api/discord-login" // Discord login link
-              className="relative flex flex-col items-center space-x-2  text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        {/* Profile button at the bottom */}
+        {isLoggedIn && (
+          <div className="relative group mt-4">
+            <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+
+            <Link
+              to="/profile" // Link to profile
+              className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-white-500/50 font-medium rounded-lg px-5 py-2.5 text-center"
             >
               <div className="space-x-2 flex items-center">
-                <FontAwesomeIcon icon={faDiscord} className="text-lg" />
-                <span>Sign In</span>
+                <FontAwesomeIcon icon={faUser} className="text-md" />
+                <span className="text-sm">Profile</span>
               </div>
-            </a>
+            </Link>
           </div>
         )}
       </div>
