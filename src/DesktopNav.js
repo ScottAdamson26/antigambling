@@ -89,7 +89,7 @@ function DesktopNav() {
               })}
             </nav>
           </div>
-
+              
           {/* Show the Sign In or Sign Out button */}
           {isLoggedIn ? (
             // Sign Out button
@@ -98,7 +98,7 @@ function DesktopNav() {
 
               <button
                 onClick={logoutUser} // Invoke the logoutUser function from AuthContext
-                className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="relative w-full flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 <div className="space-x-2 flex items-center">
                   <FontAwesomeIcon icon={faDiscord} className="text-lg" />
@@ -125,7 +125,7 @@ function DesktopNav() {
         </div>
 
         {/* Profile button at the bottom */}
-        {isLoggedIn && (
+        {!isLoggedIn && (
           <div className="relative group mt-4">
             <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
 

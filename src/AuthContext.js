@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
   // On component mount, check if the user is already logged in (from localStorage or sessionStorage)
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
+
     if (storedUser) {
       const user = JSON.parse(storedUser);
       console.log("User found in localStorage: ", user);
@@ -32,6 +33,22 @@ export const AuthProvider = ({ children }) => {
         id: user.id,
         isLoggedIn: true,
       });
+    } else if (process.env.NODE_ENV === 'development') {
+      // Temporary data for local development
+      console.log("No user found in localStorage, using mock data for development.");
+      const mockUser = {
+        username: 'DevUser',
+        avatar: 'mock-avatar-id', // Mock avatar hash
+        id: '123456789',  // Mock user ID
+      };
+      setAuthState({
+        username: mockUser.username,
+        avatar: mockUser.avatar,
+        id: mockUser.id,
+        isLoggedIn: true,
+      });
+
+      console.log("Using mock user for development:", mockUser);
     } else {
       console.log("No user found in localStorage.");
     }
