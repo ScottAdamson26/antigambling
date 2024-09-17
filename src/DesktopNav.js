@@ -59,7 +59,7 @@ function DesktopNav() {
       </div>
 
       {/* Side Navigation Container */}
-      <div className="fixed font-normal font-suse text-base left-0 top-16 h-[calc(100vh-4rem)] ml-3 py-4 pt-10 w-56 z-10 flex flex-col justify-between">
+      <div className="fixed font-normal font-suse text-base left-0 top-16 h-[calc(100vh-4rem)] ml-3 py-4 pt-10 w-56 z-10 flex flex-col">
         <div>
           {/* Wrapper for Navigation Items with Background and Outline */}
           <div className="bg-navBg p-4 rounded-2xl">
@@ -89,23 +89,40 @@ function DesktopNav() {
               })}
             </nav>
           </div>
-              
+          
           {/* Show the Sign In or Sign Out button */}
           {isLoggedIn ? (
-            // Sign Out button
-            <div className="relative group mt-4">
-              <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+            <>
+              {/* Sign Out button */}
+              <div className="relative group mt-4">
+                <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
 
-              <button
-                onClick={logoutUser} // Invoke the logoutUser function from AuthContext
-                className="relative w-full flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-              >
-                <div className="space-x-2 flex items-center">
-                  <FontAwesomeIcon icon={faDiscord} className="text-lg" />
-                  <span>Sign Out</span>
-                </div>
-              </button>
-            </div>
+                <button
+                  onClick={logoutUser} // Invoke the logoutUser function from AuthContext
+                  className="relative w-full flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                >
+                  <div className="space-x-2 flex items-center">
+                    <FontAwesomeIcon icon={faDiscord} className="text-lg" />
+                    <span>Sign Out</span>
+                  </div>
+                </button>
+              </div>
+
+              {/* Profile button directly below Sign Out */}
+              <div className="relative group mt-4">
+                <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+
+                <Link
+                  to="/profile" // Link to profile
+                  className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-white-500/50 font-medium rounded-lg px-5 py-2.5 text-center"
+                >
+                  <div className="space-x-2 flex items-center">
+                    <FontAwesomeIcon icon={faUser} className="text-md" />
+                    <span className="text-sm">Profile</span>
+                  </div>
+                </Link>
+              </div>
+            </>
           ) : (
             // Sign In button
             <div className="relative group mt-4">
@@ -123,23 +140,6 @@ function DesktopNav() {
             </div>
           )}
         </div>
-
-        {/* Profile button at the bottom */}
-        {!isLoggedIn && (
-          <div className="relative group mt-4">
-            <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-
-            <Link
-              to="/profile" // Link to profile
-              className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-white-500/50 font-medium rounded-lg px-5 py-2.5 text-center"
-            >
-              <div className="space-x-2 flex items-center">
-                <FontAwesomeIcon icon={faUser} className="text-md" />
-                <span className="text-sm">Profile</span>
-              </div>
-            </Link>
-          </div>
-        )}
       </div>
     </>
   );
