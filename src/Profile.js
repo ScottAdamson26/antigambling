@@ -13,7 +13,7 @@ function Profile() {
           <img
         src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`}
         alt={`${username}'s avatar`} 
-        className='rounded-full w-64 h-64 order-solid border-2 border-lightOrange'
+        className='rounded-full w-40 h-40 order-solid border-2 border-lightOrange'
       />
       <h1 className='text-white font-semibold text-xl mt-6'>{username}</h1>
     

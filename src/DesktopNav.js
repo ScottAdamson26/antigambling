@@ -78,7 +78,7 @@ function DesktopNav() {
                   >
                     <div
                       className={`p-1 rounded-md w-7 h-7 flex items-center justify-center transition-all duration-500 ease-in-out transform ${
-                        isActive ? "text-white scale-110" : "text-gray-300 hover:scale-110"
+                        isActive ? "text-white scale-110" : "text-gray-300 hover:text-white hover:scale-110"
                       }`}
                     >
                       <FontAwesomeIcon icon={item.icon} />
