@@ -34,14 +34,14 @@ function DesktopNav() {
         <img src={logo} alt="Logo" className="h-10 ml-10 mt-2" /> {/* Logo Image */}
         {isLoggedIn ? (
           // If the user is logged in, show the profile info
-          <div className="flex items-center space-x-3">
+          <Link to="/profile" className="flex items-center space-x-3 ">
             <img
               src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} // Use both the user ID and avatar hash
               alt="Profile"
-              className="w-10 h-10 rounded-full"
+              className="w-10 h-10 rounded-full outline outline-2 outline-lightOrange"
             />
-            <span>{username}</span>
-          </div>
+            <span className="font-suse">{username}</span>
+          </Link>
         ) : (
           // If the user is not logged in, show the Join the Club button
           <div className="relative group">
