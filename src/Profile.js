@@ -1,33 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from './AuthContext'; // Import the AuthContext
 
 function Profile() {
-  const [user, setUser] = useState(null);
+  const { username, avatar, id, isLoggedIn } = useContext(AuthContext); // Access user data from AuthContext
 
-  useEffect(() => {
-    // Fetch the user's Discord data from the backend
-    const fetchUser = async () => {
-      try {
-        const response = await fetch('/.netlify/functions/discord-callback');
-        const userData = await response.json();
-        setUser(userData);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchUser();
-  }, []);
-
-  if (!user) {
-    return <div>Loading...</div>;
+  if (!isLoggedIn) {
+    return <div>You are not logged in.</div>;
   }
 
   return (
     <div className="profile-page">
-      <h1>Welcome, {user.username}#{user.discriminator}</h1>
+      <h1>Welcome, {username}</h1>
       <img
-        src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
-        alt={`${user.username}'s avatar`}
+        src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`}
+        alt={`${username}'s avatar`}
       />
     </div>
   );
