@@ -37,9 +37,9 @@ export const AuthProvider = ({ children }) => {
       // Temporary data for local development
       console.log("No user found in localStorage, using mock data for development.");
       const mockUser = {
-        username: 'DevUser',
-        avatar: 'mock-avatar-id', // Mock avatar hash
-        id: '123456789',  // Mock user ID
+        username: 'ventful1',
+        avatar: '618f6615165476c0dc4418e5b5352614', // Mock avatar hash
+        id: '1115915107025817661',  // Mock user ID
       };
       setAuthState({
         username: mockUser.username,

@@ -38,8 +38,8 @@ function HomePage() {
       {/* Render the rest of the homepage components */}
       <Feature />
       <Showcase />
-      <Videos />
-      <Blogs />
+      <Videos showIcon={true} />
+      <Blogs showIcon={true}/>
     </div>
   );
 }

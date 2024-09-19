@@ -19,28 +19,31 @@ const navItems = [
   { name: "Reviews", path: "/reviews", icon: faStar },
   { name: "Videos", path: "/videos", icon: faVideo },
   { name: "Offers", path: "/offers", icon: faGift },
-  { name: "Strats", path: "/strats", icon: faEarthAmericas },
+  { name: "News", path: "/news", icon: faEarthAmericas },
   { name: "Contact", path: "/contact", icon: faEnvelope },
 ];
 
 function DesktopNav() {
   const location = useLocation(); // Get the current path
-  const { isLoggedIn, username, avatar, id, logoutUser } = useContext(AuthContext); // Access the AuthContext
+  const { isLoggedIn, username, avatar, id, logoutUser } =
+    useContext(AuthContext); // Access the AuthContext
 
   return (
     <>
       {/* Top Navigation */}
-      <div className="sticky top-0 w-full pl-6 pr-24 py-4 bg-background text-white flex justify-between items-center z-20">
-        <img src={logo} alt="Logo" className="h-10 ml-10 mt-2" /> {/* Logo Image */}
+      <div className="sticky top-0 w-full pl-6 pr-20 py-4 bg-background text-white flex justify-between items-center z-20">
+        <img src={logo} alt="Logo" className="h-10 ml-10 mt-2" />{" "}
+        {/* Logo Image */}
         {isLoggedIn ? (
           // If the user is logged in, show the profile info
-          <Link to="/profile" className="flex items-center space-x-3 ">
+          <Link to="/profile" className="flex items-center space-x-3">
+            <span className="font-suse font-medium">{username}</span>
+
             <img
               src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} // Use both the user ID and avatar hash
               alt="Profile"
               className="w-10 h-10 rounded-full outline outline-2 outline-lightOrange"
             />
-            <span className="font-suse">{username}</span>
           </Link>
         ) : (
           // If the user is not logged in, show the Join the Club button
@@ -59,7 +62,8 @@ function DesktopNav() {
       </div>
 
       {/* Side Navigation Container */}
-      <div className="fixed font-normal font-suse text-base left-0 top-16 h-[calc(100vh-4rem)] ml-3 py-4 pt-10 w-56 z-10 flex flex-col">
+      <div className="fixed font-normal font-suse text-base left-0 top-16 h-[calc(100vh-4rem)] ml-3 pb-6 pt-10 w-56 z-10 flex flex-col justify-between">
+        {/* Navigation Links at the Top */}
         <div>
           {/* Wrapper for Navigation Items with Background and Outline */}
           <div className="bg-navBg p-4 rounded-2xl">
@@ -78,7 +82,9 @@ function DesktopNav() {
                   >
                     <div
                       className={`p-1 rounded-md w-7 h-7 flex items-center justify-center transition-all duration-500 ease-in-out transform ${
-                        isActive ? "text-white scale-110" : "text-gray-300 hover:text-white hover:scale-110"
+                        isActive
+                          ? "text-white scale-105"
+                          : "text-gray-300 hover:text-white hover:scale-110"
                       }`}
                     >
                       <FontAwesomeIcon icon={item.icon} />
@@ -89,32 +95,34 @@ function DesktopNav() {
               })}
             </nav>
           </div>
-          
-          {/* Show the Sign In or Sign Out button */}
+        </div>
+
+        {/* Sign In/Out and Profile Buttons at the Bottom */}
+        <div className="mt-auto">
           {isLoggedIn ? (
             <>
               {/* Sign Out button */}
               <div className="relative group mt-4">
-                <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+                <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
 
                 <button
                   onClick={logoutUser} // Invoke the logoutUser function from AuthContext
-                  className="relative w-full flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  className="relative w-full flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center"
                 >
                   <div className="space-x-2 flex items-center">
                     <FontAwesomeIcon icon={faDiscord} className="text-lg" />
-                    <span>Sign Out</span>
+                    <span className="text-sm">Sign Out</span>
                   </div>
                 </button>
               </div>
 
               {/* Profile button directly below Sign Out */}
               <div className="relative group mt-4">
-                <div className="absolute inset-x-0 bottom-0 h-10 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+                <div className="absolute inset-x-0 bottom-0 h-8 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
 
                 <Link
                   to="/profile" // Link to profile
-                  className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-white-500/50 font-medium rounded-lg px-5 py-2.5 text-center"
+                  className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-white-500/50 font-medium rounded-lg px-5 py-2 text-center"
                 >
                   <div className="space-x-2 flex items-center">
                     <FontAwesomeIcon icon={faUser} className="text-md" />
@@ -130,11 +138,11 @@ function DesktopNav() {
 
               <a
                 href="/api/discord-login" // Discord login link
-                className="relative flex flex-col items-center space-x-2  text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="relative flex flex-col items-center space-x-2  text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center"
               >
                 <div className="space-x-2 flex items-center">
-                  <FontAwesomeIcon icon={faDiscord} className="text-lg" />
-                  <span>Sign In</span>
+                  <FontAwesomeIcon icon={faDiscord} className="text-md" />
+                  <span className="text-sm">Sign In</span>
                 </div>
               </a>
             </div>

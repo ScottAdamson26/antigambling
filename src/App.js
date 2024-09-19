@@ -4,10 +4,10 @@ import HomePage from './HomePage';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
 import BlogPost from './BlogPost';
-import News from './News'; 
+import Blogs from './Blogs'; 
 import Profile from './Profile';
 import { AuthProvider } from './AuthContext';  // Import the AuthProvider
-
+import Videos from "./Videos";
 function App() {
   return (
     <AuthProvider>  {/* Wrap your app with the AuthProvider */}
@@ -33,9 +33,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/news" element={<News />} /> 
+                <Route path="/news" element={<Blogs />} /> 
                 <Route path="/profile" element={<Profile />} /> 
-
+                <Route path ="/videos" element={<Videos />}/>
                 {/* Add other routes here */}
               </Routes>
             </div>

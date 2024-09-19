@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { format } from 'date-fns'; // Import date-fns for date formatting
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faCircleRight } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 
-function Videos() {
+function Videos({ showIcon = false }) { // Accept the showIcon prop
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -56,10 +55,12 @@ function Videos() {
       {/* Heading for Latest Videos */}
       <div className="flex justify-between items-center mb-4 pr-4">
         <h2 className="text-base font-extrabold text-white uppercase tracking-wide">LATEST VIDEOS</h2>
-        {/* Link to /news with FontAwesome Circle Right Icon */}
-        <Link to="/videos">
-          <FontAwesomeIcon icon={faCircleRight} className="text-navPurple text-2xl hover:text-orange-600" />
-        </Link>
+        {/* Conditionally show the icon if showIcon is true */}
+        {showIcon && (
+          <Link to="/videos">
+            <FontAwesomeIcon icon={faCircleRight} className="text-navPurple text-2xl hover:text-orange-600" />
+          </Link>
+        )}
       </div>
 
       {/* Grid of Video Widgets */}
@@ -96,7 +97,7 @@ function Videos() {
                 </p>
               </div>
               
-              {/* Date Section 2*/}
+              {/* Date Section */}
               <div className="mt-2">
                 <p className="text-white text-opacity-50 text-sm">
                   {video.date ? format(video.date, 'MMMM dd, yyyy') : 'Date not available'}

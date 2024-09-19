@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleRight } from '@fortawesome/free-regular-svg-icons';
 import { format } from 'date-fns'; // Import date-fns for date formatting
 
-function Blogs() {
+function Blogs({ showIcon = false }) { // Accept the showIcon prop
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -49,10 +49,12 @@ function Blogs() {
       {/* Heading for Latest News and Icon */}
       <div className="flex justify-between items-center mb-4 pr-4">
         <h2 className="text-base font-extrabold text-white uppercase tracking-wide">Latest News</h2>
-        {/* Link to /news with FontAwesome Circle Right Icon */}
-        <Link to="/news">
-          <FontAwesomeIcon icon={faCircleRight} className="text-navPurple text-2xl hover:text-orange-600" />
-        </Link>
+        {/* Conditionally show the icon if showIcon is true */}
+        {showIcon && (
+          <Link to="/news">
+            <FontAwesomeIcon icon={faCircleRight} className="text-navPurple text-2xl hover:text-orange-600" />
+          </Link>
+        )}
       </div>
 
       {/* Grid of Blog Post Widgets */}
@@ -77,7 +79,7 @@ function Blogs() {
             {/* Title and Date Section */}
             <div className="p-4">
               {/* Fixed height for the title to ensure alignment */}
-              <div className="h-12"> {/* Adjust the height (e.g., 12rem) as per your design */}
+              <div className="h-12">
                 <p className="text-white font-semibold text-left line-clamp-2 overflow-hidden text-ellipsis">
                   {post.title}
                 </p>
@@ -85,7 +87,7 @@ function Blogs() {
               {/* Date */}
               {post.date ? (
                 <p className="text-white text-opacity-50 text-sm mt-2">
-                  {format(post.date, 'MMMM dd, yyyy')} {/* Format date as "August 31, 2024" */}
+                  {format(post.date, 'MMMM dd, yyyy')}
                 </p>
               ) : (
                 <p className="text-white text-opacity-50 text-sm mt-2">Date not available</p>
