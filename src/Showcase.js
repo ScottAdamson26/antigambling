@@ -17,7 +17,7 @@ import { faStar as faRegularStar, faCircleRight } from "@fortawesome/free-regula
 
 function Showcase() {
   return (
-    <div className="mb-8 font-suse">
+    <div className=" font-suse">
       {/* Heading for Trusted Casinos */}
       <div className="flex justify-between items-center mb-4 pr-4">
         <h2 className="text-base font-extrabold text-white uppercase tracking-wide">CASINO REVIEWS</h2>

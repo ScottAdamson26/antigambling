@@ -68,7 +68,7 @@ function Blogs({ showIcon = false }) { // Accept the showIcon prop
             {/* Image Section */}
             {post.coverImage && (
               <div
-                className="h-32 bg-cover bg-center transform transition-transform duration-500 ease-in-out group-hover:scale-110"
+                className="h-32 bg-cover bg-center transform transition-transform duration-500 ease-in-out group-hover:scale-105"
                 style={{
                   backgroundImage: `url(${post.coverImage})`,
                   borderTopLeftRadius: '0.75rem',

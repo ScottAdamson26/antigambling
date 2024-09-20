@@ -51,7 +51,7 @@ function Videos({ showIcon = false }) { // Accept the showIcon prop
   }, []);
 
   return (
-    <div className="font-bold mb-4 text-xl font-suse">
+    <div className="font-bold text-xl font-suse">
       {/* Heading for Latest Videos */}
       <div className="flex justify-between items-center mb-4 pr-4">
         <h2 className="text-base font-extrabold text-white uppercase tracking-wide">LATEST VIDEOS</h2>

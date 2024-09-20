@@ -8,6 +8,7 @@ import Blogs from './Blogs';
 import Profile from './Profile';
 import { AuthProvider } from './AuthContext';  // Import the AuthProvider
 import Videos from "./Videos";
+import Showcase from "./Showcase"
 function App() {
   return (
     <AuthProvider>  {/* Wrap your app with the AuthProvider */}
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/news" element={<Blogs />} /> 
                 <Route path="/profile" element={<Profile />} /> 
                 <Route path ="/videos" element={<Videos />}/>
+                <Route path = "/reviews" element={<Showcase />}/>
                 {/* Add other routes here */}
               </Routes>
             </div>
