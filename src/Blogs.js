@@ -65,7 +65,7 @@ function Blogs({ showIcon = false }) { // Accept the showIcon prop
             key={index}
             className="bg-navBg rounded-lg shadow-md overflow-hidden group outline-dashed outline-1 outline-offset-4 outline-navPurple"
           >
-            {/* Image Section */}
+            {/* Image Secion */}
             {post.coverImage && (
               <div
                 className="h-32 bg-cover bg-center transform transition-transform duration-500 ease-in-out group-hover:scale-105"
