@@ -1,7 +1,7 @@
 ---
 title: EmpireDrop Sends Free Balance to Self-Excluded Player, Sparks Outrage!
 date: 2024-09-20T22:11:00.000Z
-cover_image: /uploads/whatsapp-image-2024-09-20-at-12.04.10.jpeg
+cover_image: /uploads/thumb.webp
 ---
 EmpireDrop Sends Free Balance to Self-Excluded Player, Sparks Outrage!
 
