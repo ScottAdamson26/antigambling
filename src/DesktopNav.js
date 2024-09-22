@@ -95,7 +95,7 @@ function DesktopNav({ onToggle }) {
               <button
                 onClick={toggleSidebar}
                 className={`flex mt-2 items-center py-1 px-3 w-full rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
-                  isOpen ? "justify-end" : "justify-center"
+                  isOpen ? "justify-end" : "justify-end"
                 }`}
               >
                 <div
