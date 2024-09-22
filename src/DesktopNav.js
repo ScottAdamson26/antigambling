@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -9,10 +9,12 @@ import {
   faVideo,
   faStar,
   faUser,
+  faOutdent,
+  faIndent,
 } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons"; // Import the Discord icon
-import logo from "../src/logo.png"; // Import the logo
-import { AuthContext } from "./AuthContext"; // Import the AuthContext
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import logo from "../src/logo.png";
+import { AuthContext } from "./AuthContext";
 
 const navItems = [
   { name: "Home", path: "/", icon: faHome },
@@ -23,35 +25,54 @@ const navItems = [
   { name: "Contact", path: "/contact", icon: faEnvelope },
 ];
 
-function DesktopNav() {
-  const location = useLocation(); // Get the current path
+function DesktopNav({ onToggle }) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const { isLoggedIn, username, avatar, id, logoutUser } =
-    useContext(AuthContext); // Access the AuthContext
+    useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(true);
+  const [showText, setShowText] = useState(true); // For controlling text appearance
+
+  useEffect(() => {
+    // Delay showing/hiding the text to make the transition smoother
+    if (isOpen) {
+      setTimeout(() => setShowText(true), 150); // Delay text appearance when opening
+    } else {
+      setShowText(false); // Immediately hide text when closing
+    }
+  }, [isOpen]);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+    onToggle(!isOpen); // Notify parent component about the state change
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   return (
     <>
       {/* Top Navigation */}
       <div className="sticky top-0 w-full pl-6 pr-20 py-4 bg-background text-white flex justify-between items-center z-20">
-        <img src={logo} alt="Logo" className="h-10 ml-10 mt-2" />{" "}
-        {/* Logo Image */}
+        <img src={logo} alt="Logo" className="h-10 ml-10 mt-2" />
         {isLoggedIn ? (
-          // If the user is logged in, show the profile info
-          <Link to="/profile" className="flex items-center space-x-3">
+          <button
+            onClick={() => handleNavigation("/profile")}
+            className="flex items-center space-x-3"
+          >
             <span className="font-suse font-medium">{username}</span>
-
             <img
-              src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`} // Use both the user ID and avatar hash
+              src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`}
               alt="Profile"
               className="w-10 h-10 rounded-full outline outline-2 outline-lightOrange"
             />
-          </Link>
+          </button>
         ) : (
-          // If the user is not logged in, show the Join the Club button
           <div className="relative group">
             <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-
             <a
-              href="/api/discord-login" // Discord login link
+              href="/api/discord-login"
               className="relative flex items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               <FontAwesomeIcon icon={faDiscord} className="w-5 h-5" />
@@ -62,26 +83,43 @@ function DesktopNav() {
       </div>
 
       {/* Side Navigation Container */}
-      <div className="fixed font-normal font-suse text-base left-0 top-16 h-[calc(100vh-4rem)] ml-3 pb-6 pt-10 w-56 z-10 flex flex-col justify-between">
-        {/* Navigation Links at the Top */}
-        <div>
-          {/* Wrapper for Navigation Items with Background and Outline */}
-          <div className="bg-navBg p-4 rounded-2xl">
+      <div
+        className={`fixed font-normal font-suse text-base left-0 top-12 h-[calc(100vh-3rem)] ml-3 pb-6 pt-10 z-10 flex flex-col justify-between transition-all duration-500 ${
+          isOpen ? "w-56" : "w-20"
+        }`}
+      >
+        <div className="">
+          <div className="px-2 pb-2 rounded-2xl">
             <nav className="space-y-4">
+              {/* Indent/Outdent Button */}
+              <button
+                onClick={toggleSidebar}
+                className={`flex mt-2 items-center py-1 px-3 w-full rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
+                  isOpen ? "justify-end" : "justify-center"
+                }`}
+              >
+                <div
+                  className={`w-10 flex items-center justify-center rounded-lg text-gray-300 hover:text-white transition-all duration-500 ease-in-out transform`}
+                >
+                  <FontAwesomeIcon icon={isOpen ? faOutdent : faIndent} />
+                </div>
+              </button>
+
+              {/* Navigation Items */}
               {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
-                  <Link
+                  <button
                     key={item.name}
-                    to={item.path}
-                    className={`flex items-center space-x-3 py-1.5 px-3 rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
+                    onClick={() => handleNavigation(item.path)}
+                    className={`flex items-center py-1 px-3 w-full rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
                       isActive
                         ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105"
                         : "text-gray-300 hover:text-white hover:bg-navPurple hover:scale-105"
                     }`}
                   >
                     <div
-                      className={`p-1 rounded-md w-7 h-7 flex items-center justify-center transition-all duration-500 ease-in-out transform ${
+                      className={` w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-500 ease-in-out transform ${
                         isActive
                           ? "text-white scale-105"
                           : "text-gray-300 hover:text-white hover:scale-110"
@@ -89,60 +127,61 @@ function DesktopNav() {
                     >
                       <FontAwesomeIcon icon={item.icon} />
                     </div>
-                    <span className="text-sm">{item.name}</span>
-                  </Link>
+                    {isOpen && showText && (
+                      <span className="transition-opacity duration-500 text-sm ml-2">
+                        {item.name}
+                      </span>
+                    )}
+                  </button>
                 );
               })}
             </nav>
           </div>
         </div>
 
-        {/* Sign In/Out and Profile Buttons at the Bottom */}
         <div className="mt-auto">
           {isLoggedIn ? (
             <>
-              {/* Sign Out button */}
+              {/* Fixed size for Sign Out Button */}
               <div className="relative group mt-4">
                 <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-
                 <button
-                  onClick={logoutUser} // Invoke the logoutUser function from AuthContext
-                  className="relative w-full flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center"
+                  onClick={logoutUser}
+                  className={`relative w-full h-10 flex items-center justify-center text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
                 >
                   <div className="space-x-2 flex items-center">
                     <FontAwesomeIcon icon={faDiscord} className="text-lg" />
-                    <span className="text-sm">Sign Out</span>
+                    {isOpen && showText && <span className="text-sm">Sign Out</span>}
                   </div>
                 </button>
               </div>
 
-              {/* Profile button directly below Sign Out */}
+              {/* Fixed size for Profile Button */}
               <div className="relative group mt-4">
                 <div className="absolute inset-x-0 bottom-0 h-8 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-
-                <Link
-                  to="/profile" // Link to profile
-                  className="relative flex flex-col items-center space-x-2 text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-white-500/50 font-medium rounded-lg px-5 py-2 text-center"
+                <button
+                  onClick={() => handleNavigation("/profile")}
+                  className={`relative w-full h-10 flex items-center justify-center text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-white-500/50 rounded-lg`}
                 >
                   <div className="space-x-2 flex items-center">
                     <FontAwesomeIcon icon={faUser} className="text-md" />
-                    <span className="text-sm">Profile</span>
+                    {isOpen && showText && <span className="text-sm">Profile</span>}
                   </div>
-                </Link>
+                </button>
               </div>
             </>
           ) : (
-            // Sign In button
             <div className="relative group mt-4">
-              <div className="absolute inset-x-0 bottom-0 h-10 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-
+              <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
               <a
-                href="/api/discord-login" // Discord login link
-                className="relative flex flex-col items-center space-x-2  text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-200 ease-in-out shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center"
+                href="/api/discord-login"
+                className={`relative w-full h-10 flex ${
+                  isOpen ? "flex-col" : "justify-center"
+                } items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
               >
                 <div className="space-x-2 flex items-center">
                   <FontAwesomeIcon icon={faDiscord} className="text-md" />
-                  <span className="text-sm">Sign In</span>
+                  {isOpen && showText && <span className="text-sm">Sign In</span>}
                 </div>
               </a>
             </div>
