@@ -172,19 +172,16 @@ function DesktopNav({ onToggle }) {
             </>
           ) : (
             <div className="relative group mt-4">
-              <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-              <a
-                href="/api/discord-login"
-                className={`relative w-full h-10 flex ${
-                  isOpen ? "flex-col" : "justify-center"
-                } items-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
-              >
-                <div className="space-x-2 flex items-center">
-                  <FontAwesomeIcon icon={faDiscord} className="text-md" />
-                  {isOpen && showText && <span className="text-sm">Sign In</span>}
-                </div>
-              </a>
-            </div>
+            <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+            <a
+              href="/api/discord-login"
+              className={`relative w-full h-10 flex items-center justify-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
+            >
+              <FontAwesomeIcon icon={faDiscord} className="text-md" />
+              {isOpen && showText && <span className="text-sm">Sign In</span>}
+            </a>
+          </div>
+          
           )}
         </div>
       </div>
