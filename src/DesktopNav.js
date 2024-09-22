@@ -112,17 +112,17 @@ function DesktopNav({ onToggle }) {
                   <button
                     key={item.name}
                     onClick={() => handleNavigation(item.path)}
-                    className={`flex items-center py-1 px-3 w-full rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
+                    className={`flex items-center px-3 w-full rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
                       isActive
                         ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105"
-                        : "text-gray-300 hover:text-white hover:bg-navPurple hover:scale-105"
+                        : "hover:text-white text-gray-300 hover:bg-gradient-to-r hover:from-orange-400 hover:via-navPurple hover:to-orange-600 hover:scale-105"
                     }`}
                   >
                     <div
                       className={` w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-500 ease-in-out transform ${
                         isActive
                           ? "text-white scale-105"
-                          : "text-gray-300 hover:text-white hover:scale-110"
+                          : "hover:text-white text-gray-300 hover:scale-110"
                       }`}
                     >
                       <FontAwesomeIcon icon={item.icon} />
@@ -175,10 +175,10 @@ function DesktopNav({ onToggle }) {
             <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
             <a
               href="/api/discord-login"
-              className={`relative w-full h-10 flex items-center justify-center space-x-2 text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
+              className={`relative w-full h-10 flex items-center justify-center  text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
             >
               <FontAwesomeIcon icon={faDiscord} className="text-md" />
-              {isOpen && showText && <span className="text-sm">Sign In</span>}
+              {isOpen && showText && <span className="text-sm ml-2">Sign In</span>}
             </a>
           </div>
           
