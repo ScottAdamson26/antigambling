@@ -102,7 +102,7 @@ const Contact = () => {
       <div className="relative group mt-4">
         <div className="absolute inset-x-0 bottom-0 h-8 bg-violet-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
         <button
-          onClick={() => window.open('https://discord.gg/your-invite-link', '_blank')}
+          onClick={() => window.open('https://discord.gg/Kd3BXsDPkd', '_blank')}
           className={`relative w-full h-10 flex items-center justify-center text-white bg-gradient-to-r from-violet-600 via-violet-500 to-violet-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-violet-500/50 rounded-lg py-2 focus:outline-none`}
         >
           <div className="space-x-2 flex items-center">
