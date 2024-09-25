@@ -12,7 +12,7 @@ module.exports = {
         customGradientTop: '#2B2361',
         customGradientBottom: '#3C3374',
         navPurple: '#EB8E2A',
-        navBg: '#19191A',
+        navBg: '#202021',
         background: '#121212',
         lightOrange: '#FF9A2E',
         gamdomGreen: '#00b861',

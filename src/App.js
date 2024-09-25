@@ -9,6 +9,7 @@ import Profile from './Profile';
 import { AuthProvider } from './AuthContext';  // Import the AuthProvider
 import Videos from "./Videos";
 import Showcase from "./Showcase";
+import Contact from './Contact';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -45,6 +46,8 @@ function App() {
                 <Route path="/profile" element={<Profile />} /> 
                 <Route path ="/videos" element={<Videos />}/>
                 <Route path = "/reviews" element={<Showcase />}/>
+                <Route path = "/contact" element={<Contact />}/>
+
                 {/* Add other routes here */}
               </Routes>
             </div>

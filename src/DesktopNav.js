@@ -90,7 +90,7 @@ function DesktopNav({ onToggle }) {
       >
         <div className="">
           <div className="px-2 pb-2 rounded-2xl">
-            <nav className="space-y-4">
+            <nav className="space-y-3">
               {/* Indent/Outdent Button */}
               <button
                 onClick={toggleSidebar}
