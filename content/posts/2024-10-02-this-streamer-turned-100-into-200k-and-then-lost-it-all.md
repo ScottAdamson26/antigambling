@@ -1,7 +1,7 @@
 ---
 title: THIS STREAMER TURNED $100 INTO $200K AND THEN LOST IT ALL
 date: 2024-10-02T12:06:00.000Z
-cover_image: /uploads/bossman.png
+cover_image: /uploads/bossman.webp
 ---
 Imagine depositing $100 onto your favourite casino, then running that money up to $200k before withdrawing, playing solely on Dice. A feat only the most degenerate of gamblers could accomplish. Well that’s exactly what Kick streamer BossmanJack did, and in true degen fashion, he lost every single penny less than 36 hours later.
 
