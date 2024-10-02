@@ -41,7 +41,7 @@ function BlogPost() {
 
       {/* Blog Post Body */}
       <div className="text-white prose prose-lg max-w-none">
-        {/* Use ReactMarkdown to render the body content */}
+        {/* Use ReactMarkdown to render the body conent */}
         <ReactMarkdown>{post.body}</ReactMarkdown>
       </div>
     </div>
