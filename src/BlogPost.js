@@ -1,55 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { BlogContext } from "./BlogContext"; // Import the BlogContext
+import { format } from "date-fns";
+import ReactMarkdown from "react-markdown"; // To render markdown content
 
 function BlogPost() {
-  const { slug } = useParams();
-  const [post, setPost] = useState(null);
+  const { slug } = useParams(); // Get the slug from the URL
+  const { posts } = useContext(BlogContext); // Get the blog posts from context
+
+  // Find the blog post by matching the slug
+  const post = posts.find((post) => post.slug === slug);
 
   useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await fetch('https://api.github.com/repos/ScottAdamson26/antigambling/contents/content/posts');
-        const files = await response.json();
-
-        const postFile = files.find(file => {
-          const fileNameSlug = file.name.replace('.md', '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-          return fileNameSlug === slug;
-        });
-
-        if (postFile) {
-          const fileResponse = await fetch(postFile.download_url);
-          const fileContent = await fileResponse.text();
-
-          const titleMatch = fileContent.match(/^title:\s*"?([^"\n\r]+)"?\s*$/im);
-          const coverImageMatch = fileContent.match(/^cover_image:\s*"?([^"\n\r]+)"?\s*$/im);
-          const contentMatch = fileContent.split('---')[2]?.trim();
-
-          setPost({
-            title: titleMatch ? titleMatch[1].trim() : 'Untitled',
-            coverImage: coverImageMatch ? coverImageMatch[1].trim() : null,
-            content: contentMatch,
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching post:', error);
-      }
-    };
-
-    fetchPost();
-  }, [slug]);
+    if (post) {
+      console.log("Blog post body content:", post.body); // Log the body content to check if it's coming through
+    }
+  }, [post]);
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <div>Blog post not found</div>; // Display message if no post found
   }
 
   return (
-    <div className="p-8 text-white">
+    <div className="max-w-5xl mx-auto p-4 mb-32">
+      {/* Blog Post Title */}
+      <h1 className="text-5xl font-bold text-white mb-4">{post.title}</h1>
+
+      {/* Blog Post Date */}
+      <p className="text-white text-opacity-50 text-sm mb-6">
+        {post.date ? format(post.date, "MMMM dd, yyyy") : "Date not available"}
+      </p>
+      {/* Blog Post Cover Image */}
       {post.coverImage && (
-        <img src={post.coverImage} alt={post.title} className="w-full h-auto rounded-lg mb-4" />
+        <img
+          src={post.coverImage}
+          alt={post.title}
+          className=" h-96 mb-6 rounded-lg"
+        />
       )}
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-      <div className="prose prose-lg">
-        <p>{post.content}</p>
+
+      {/* Blog Post Body */}
+      <div className="text-white prose prose-lg max-w-none">
+        {/* Use ReactMarkdown to render the body content */}
+        <ReactMarkdown>{post.body}</ReactMarkdown>
       </div>
     </div>
   );
