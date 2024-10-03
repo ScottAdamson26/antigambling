@@ -5,7 +5,7 @@ import Showcase from './Showcase';
 import Blogs from './Blogs';
 import Videos from './Videos';
 import { AuthContext } from './AuthContext';  // Import the AuthContext
-
+import Footer from './Footer';
 // Helper hook to parse query parameters from the URLimport React, { useEffect, useContext } from 'react';
 // Helper hook to parse query parameters from the URL
 function useQuery() {
@@ -40,6 +40,7 @@ function HomePage() {
       <Showcase />
       <Videos showIcon={true} />
       <Blogs showIcon={true}/>
+      <Footer/>
     </div>
   );
 }

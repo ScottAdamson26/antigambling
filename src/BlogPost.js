@@ -25,43 +25,45 @@ function BlogPost({ scrollableDivRef }) { // Accept scrollableDivRef as a prop
   }
 
   return (
-    <div className="max-w-5xl mx-auto mb-32">
+    <div className="max-w-5xl mx-auto mb-32 mt-8">
       {/* Blog Post Title */}
-      <h1 className="text-5xl font-bold text-white mb-6">{post.title}</h1>
+      <div className="text-center mb-6">
+        <h1 className="text-5xl font-bold text-white mb-6">{post.title}</h1>
 
-      {/* Blog Post Cover Image */}
-      {post.coverImage && (
-        <img
-          src={post.coverImage}
-          alt={post.title}
-          className="h-96 mb-4 rounded-lg"
-        />
-      )}
+        {/* Author Section and Date */}
+        <div className="flex flex-col items-center mb-4">
+          {/* Author image with outline */}
+          <div className="w-10 h-10 rounded-full border-3 border-orange-600 flex items-center justify-center mb-2">
+            <img
+              src={`${process.env.PUBLIC_URL}/Andious.webp`} // Access image from the public folder
+              alt="Andious"
+              className="w-full h-full rounded-full"
+            />
+          </div>
 
-      {/* Author Section */}
-      <div className="flex items-center mb-2 ml-2">
-        {/* Author image with flush outline */}
-        <div className="w-10 h-10 rounded-full border-3 border-orange-600 flex items-center justify-center">
-          <img
-            src={`${process.env.PUBLIC_URL}/Andious.webp`} // Access image from the public folder
-            alt="Andious"
-            className="w-full h-full rounded-full"
-          />
-        </div>
-
-        {/* Author Name */}
-        <div className="ml-4">
+          {/* Author Name */}
           <p className="text-white text-lg font-semibold">Andious</p>
+
+          {/* Blog Post Date */}
+          <p className="text-white text-opacity-50 text-sm">
+            {post.date ? format(post.date, "MMMM dd, yyyy") : "Date not available"}
+          </p>
         </div>
+
+        {/* Blog Post Cover Image */}
+        {post.coverImage && (
+          <div className="flex justify-center mb-6">  {/* Center-align the image */}
+            <img
+              src={post.coverImage}
+              alt={post.title}
+              className="h-96 rounded-lg"
+            />
+          </div>
+        )}
       </div>
 
-      {/* Blog Post Date */}
-      <p className="text-white text-opacity-50 text-sm ml-2">
-        {post.date ? format(post.date, "MMMM dd, yyyy") : "Date not available"}
-      </p>
-
       {/* Blog Post Body */}
-      <div className="text-white text-base font-medium prose prose-lg max-w-none mt-6 space-y-6">
+      <div className="text-white text-base font-medium prose prose-lg max-w-none mt-6 space-y-6 text-left">
         {/* Use ReactMarkdown to render the body content */}
         <ReactMarkdown>{post.body}</ReactMarkdown>
       </div>

@@ -13,6 +13,14 @@
   }
 }
 
+.custom-grid {
+  display: grid;
+  grid-template-columns: minmax(90px, 148px) minmax(168px, 280px) minmax(
+      168px,
+      280px
+    ) minmax(168px, 280px);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
