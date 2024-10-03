@@ -28,7 +28,7 @@ function Blogs({ showIcon = false }) {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {posts.map((post, index) => (
           <Link
-            to={`/blog/${post.slug}`}
+            to={`/news/${post.slug}`}
             key={index}
             className="bg-navBg rounded-lg shadow-md overflow-hidden group outline-dashed outline-1 outline-offset-4 outline-navPurple"
           >

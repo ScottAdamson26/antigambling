@@ -21,7 +21,7 @@ const navItems = [
   { name: "Reviews", path: "/reviews", icon: faStar },
   { name: "Videos", path: "/videos", icon: faVideo },
   { name: "Offers", path: "/offers", icon: faGift },
-  { name: "News", path: "/news", icon: faEarthAmericas },
+  { name: "News", path: "/news", icon: faEarthAmericas }, // This will match /news and /news/:slug
   { name: "Contact", path: "/contact", icon: faEnvelope },
 ];
 
@@ -107,7 +107,12 @@ function DesktopNav({ onToggle }) {
 
               {/* Navigation Items */}
               {navItems.map((item) => {
-                const isActive = location.pathname === item.path;
+                // Check if the current path matches or starts with "/news"
+                const isActive =
+                  item.path === "/news"
+                    ? location.pathname.startsWith("/news")
+                    : location.pathname === item.path;
+
                 return (
                   <button
                     key={item.name}

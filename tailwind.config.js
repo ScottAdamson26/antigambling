@@ -28,11 +28,10 @@ module.exports = {
       },
       screens: {
         'lg': '1440px',
-        // Existing lg breakpoint for 1440px
-
-        // Custom breakpoint at 1350px
         'xl2': '1350px',
-        // => @media (min-width: 1350px) { ... }
+      },
+      borderWidth: {
+        '3': '3px',  // Adding custom 3px border width
       },
     },
   },
