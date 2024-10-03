@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react'; // Import useRef
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
 import MobileNav from './MobileNav';
@@ -15,6 +15,9 @@ import Contact from './Contact';
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  
+  // Ref for the scrollable content area
+  const scrollableDivRef = useRef(null);
 
   const handleSidebarToggle = (isOpen) => {
     setIsSidebarOpen(isOpen);
@@ -42,17 +45,21 @@ function App() {
                 <div className={`hidden md:block transition-all duration-500 ${isSidebarOpen ? "w-56" : "w-20"}`}></div>
 
                 {/* Scrollable Content */}
-                <div className={`flex-1 transition-all duration-500 overflow-y-auto pb-12 pt-8 md:pl-10 md:pr-4 2xl:px-10 font-suse`}>
+                <div
+                  ref={scrollableDivRef} // Add the ref here
+                  className={`flex-1 transition-all duration-500 overflow-y-auto pb-12 pt- md:pl-10 md:pr-4 2xl:px-10 font-suse`}
+                >
                   <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/news/:slug" element={<BlogPost />} />  {/* Dynamic blog route */}
+                    <Route
+                      path="/news/:slug"
+                      element={<BlogPost scrollableDivRef={scrollableDivRef} />} // Pass the ref down
+                    />
                     <Route path="/news" element={<Blogs />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/videos" element={<Videos />} />
                     <Route path="/reviews" element={<Showcase />} />
                     <Route path="/contact" element={<Contact />} />
-
-                    {/* Add other routes here */}
                   </Routes>
                 </div>
               </div>

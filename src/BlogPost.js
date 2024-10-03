@@ -1,20 +1,24 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom"; // Added useLocation to track route changes
 import { BlogContext } from "./BlogContext"; // Import the BlogContext
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown"; // To render markdown content
 
-function BlogPost() {
+function BlogPost({ scrollableDivRef }) { // Accept scrollableDivRef as a prop
   const { slug } = useParams(); // Get the slug from the URL
+  const location = useLocation(); // To detect route changes
   const { posts } = useContext(BlogContext); // Get the blog posts from context
 
   // Find the blog post by matching the slug
   const post = posts.find((post) => post.slug === slug);
 
-  // Scroll to the top when the component mounts or when the slug changes
+  // Scroll to the top of the specific container when the component mounts or when the slug changes
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
+    if (scrollableDivRef && scrollableDivRef.current) {
+      // Scroll the div to the top
+      scrollableDivRef.current.scrollTop = 0;
+    }
+  }, [slug, location, scrollableDivRef]);
 
   if (!post) {
     return <div>Blog post not found</div>; // Display message if no post found
@@ -36,11 +40,8 @@ function BlogPost() {
 
       {/* Author Section */}
       <div className="flex items-center mb-2 ml-2">
- 
-
         {/* Author image with flush outline */}
         <div className="w-10 h-10 rounded-full border-3 border-orange-600 flex items-center justify-center">
-          {/* Profile image for Andious */}
           <img
             src={`${process.env.PUBLIC_URL}/Andious.webp`} // Access image from the public folder
             alt="Andious"
@@ -61,7 +62,7 @@ function BlogPost() {
 
       {/* Blog Post Body */}
       <div className="text-white text-base font-medium prose prose-lg max-w-none mt-6 space-y-6">
-        {/* Use ReactMarkdown to render the body conent */}
+        {/* Use ReactMarkdown to render the body content */}
         <ReactMarkdown>{post.body}</ReactMarkdown>
       </div>
     </div>
