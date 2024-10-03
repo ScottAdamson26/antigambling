@@ -21,7 +21,7 @@ function BlogPost() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto py-4 mb-32">
+    <div className="max-w-5xl mx-auto mb-32">
       {/* Blog Post Title */}
       <h1 className="text-5xl font-bold text-white mb-6">{post.title}</h1>
 
@@ -30,13 +30,13 @@ function BlogPost() {
         <img
           src={post.coverImage}
           alt={post.title}
-          className="h-96 mb-6 rounded-lg"
+          className="h-96 mb-4 rounded-lg"
         />
       )}
 
       {/* Author Section */}
-      <div className="flex items-center mb-6 ml-2">
-
+      <div className="flex items-center mb-2 ml-2">
+ 
 
         {/* Author image with flush outline */}
         <div className="w-10 h-10 rounded-full border-3 border-orange-600 flex items-center justify-center">
@@ -55,12 +55,12 @@ function BlogPost() {
       </div>
 
       {/* Blog Post Date */}
-      <p className="text-white text-opacity-50 text-sm mb-6 ml-2">
+      <p className="text-white text-opacity-50 text-sm ml-2">
         {post.date ? format(post.date, "MMMM dd, yyyy") : "Date not available"}
       </p>
 
       {/* Blog Post Body */}
-      <div className="text-white text-base font-medium prose prose-lg max-w-none space-y-6">
+      <div className="text-white text-base font-medium prose prose-lg max-w-none mt-6 space-y-6">
         {/* Use ReactMarkdown to render the body conent */}
         <ReactMarkdown>{post.body}</ReactMarkdown>
       </div>
