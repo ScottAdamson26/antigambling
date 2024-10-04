@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { VideoContext } from "./VideoContext"; // Import the VideoContext
 import { BlogContext } from "./BlogContext"; // Import the BlogContext
 import "./App.css";
-import logo from "../src/logo.png";
 
 function Footer() {
   // Get the latest videos from the VideoContext
@@ -90,7 +89,7 @@ function Footer() {
           {/* Latest Blog Posts Column */}
           <div className="flex flex-col">
             <h3 className="text-base font-semibold mb-4 uppercase">
-              Latest Blog Posts
+              Latest News
             </h3>
             <div className="space-y-4">
               {latestPosts.map((post) => (
