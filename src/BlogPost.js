@@ -3,6 +3,7 @@ import { useParams, useLocation } from "react-router-dom"; // Added useLocation 
 import { BlogContext } from "./BlogContext"; // Import the BlogContext
 import { format } from "date-fns";
 import ReactMarkdown from "react-markdown"; // To render markdown content
+import OffersList from "./OffersList"; // Import the OffersList component
 
 function BlogPost({ scrollableDivRef }) { // Accept scrollableDivRef as a prop
   const { slug } = useParams(); // Get the slug from the URL
@@ -25,48 +26,58 @@ function BlogPost({ scrollableDivRef }) { // Accept scrollableDivRef as a prop
   }
 
   return (
-    <div className="max-w-5xl mx-auto mt-8">
-      {/* Blog Post Title */}
-      <div className="text-center mb-6">
-        <h1 className="text-5xl font-bold text-white mb-6">{post.title}</h1>
+    <div className="max-w-8xl mx-auto mt-8 px-12">
+      <div className="flex flex-col lg:flex-row">
+        {/* Blog Post Content */}
+        <div className="w-full lg:w-4/5 mb-8 lg:mb-0 lg:pr-8">
+          <div className="text-center mb-6">
+            {/* Blog Post Title */}
+            <h1 className="text-5xl font-bold text-white mb-6">{post.title}</h1>
 
-        {/* Author Section and Date */}
-        <div className="flex flex-col items-center mb-4">
-          {/* Author image with outline */}
-          <div className="w-10 h-10 rounded-full border-3 border-orange-600 flex items-center justify-center mb-2">
-            <img
-              src={`${process.env.PUBLIC_URL}/Andious.webp`} // Access image from the public folder
-              alt="Andious"
-              className="w-full h-full rounded-full"
-            />
+            {/* Author Section and Date */}
+            <div className="flex flex-col items-center mb-4">
+              {/* Author image with outline */}
+              <div className="w-10 h-10 rounded-full border-3 border-orange-600 flex items-center justify-center mb-2">
+                <img
+                  src={`${process.env.PUBLIC_URL}/Andious.webp`} // Access image from the public folder
+                  alt="Andious"
+                  className="w-full h-full rounded-full"
+                />
+              </div>
+
+              {/* Author Name */}
+              <p className="text-white text-lg font-semibold">Andious</p>
+
+              {/* Blog Post Date */}
+              <p className="text-white text-opacity-50 text-sm">
+                {post.date ? format(post.date, "MMMM dd, yyyy") : "Date not available"}
+              </p>
+            </div>
+
+            {/* Blog Post Cover Image */}
+            {post.coverImage && (
+              <div className="flex justify-center mb-6">  {/* Center-align the image */}
+                <img
+                  src={post.coverImage}
+                  alt={post.title}
+                  className="h-96 rounded-lg"
+                />
+              </div>
+            )}
           </div>
 
-          {/* Author Name */}
-          <p className="text-white text-lg font-semibold">Andious</p>
-
-          {/* Blog Post Date */}
-          <p className="text-white text-opacity-50 text-sm">
-            {post.date ? format(post.date, "MMMM dd, yyyy") : "Date not available"}
-          </p>
+          {/* Blog Post Body */}
+          <div className="flex justify-center"> {/* Center-align blog text */}
+            <div className="text-white text-base font-medium prose prose-lg max-w-3xl mt-6 space-y-6 text-left">
+              {/* Use ReactMarkdown to render the body content */}
+              <ReactMarkdown>{post.body}</ReactMarkdown>
+            </div>
+          </div>
         </div>
 
-        {/* Blog Post Cover Image */}
-        {post.coverImage && (
-          <div className="flex justify-center mb-6">  {/* Center-align the image */}
-            <img
-              src={post.coverImage}
-              alt={post.title}
-              className="h-96 rounded-lg"
-            />
-          </div>
-        )}
-      </div>
-
-      {/* Blog Post Body */}
-      <div className="flex justify-center"> {/* Center-align blog text */}
-        <div className="text-white text-base font-medium prose prose-lg max-w-3xl mt-6 space-y-6 text-left">
-          {/* Use ReactMarkdown to render the body content */}
-          <ReactMarkdown>{post.body}</ReactMarkdown>
+        {/* Offers Sidebar */}
+        <div className="w-full lg:w-1/5">
+          <OffersList />
         </div>
       </div>
     </div>
