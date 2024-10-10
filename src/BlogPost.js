@@ -25,7 +25,7 @@ function BlogPost({ scrollableDivRef }) { // Accept scrollableDivRef as a prop
   }
 
   return (
-    <div className="max-w-5xl mx-auto mb-32 mt-8">
+    <div className="max-w-5xl mx-auto mt-8">
       {/* Blog Post Title */}
       <div className="text-center mb-6">
         <h1 className="text-5xl font-bold text-white mb-6">{post.title}</h1>
