@@ -25,7 +25,7 @@ function Footer() {
   const latestPosts = posts.slice(0, 3);
 
   return (
-    <footer className="w-full bg-background text-white py-12">
+    <footer className="w-full mx-auto ml-20 bg-background text-white py-12">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Footer Links - Grid Layout Centered */}
         <div className="custom-grid gap-12">

@@ -12,7 +12,7 @@ import { VideoProvider } from './VideoContext';  // Import the VideoProvider
 import Videos from './Videos';
 import Showcase from './Showcase';
 import Contact from './Contact';
-
+import Footer from './Footer2';
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   
@@ -61,6 +61,7 @@ function App() {
                     <Route path="/reviews" element={<Showcase />} />
                     <Route path="/contact" element={<Contact />} />
                   </Routes>
+                  <Footer/>
                 </div>
               </div>
             </Router>

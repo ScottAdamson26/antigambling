@@ -63,9 +63,11 @@ function BlogPost({ scrollableDivRef }) { // Accept scrollableDivRef as a prop
       </div>
 
       {/* Blog Post Body */}
-      <div className="text-white text-base font-medium prose prose-lg max-w-none mt-6 space-y-6 text-left">
-        {/* Use ReactMarkdown to render the body content */}
-        <ReactMarkdown>{post.body}</ReactMarkdown>
+      <div className="flex justify-center"> {/* Center-align blog text */}
+        <div className="text-white text-base font-medium prose prose-lg max-w-3xl mt-6 space-y-6 text-left">
+          {/* Use ReactMarkdown to render the body content */}
+          <ReactMarkdown>{post.body}</ReactMarkdown>
+        </div>
       </div>
     </div>
   );
