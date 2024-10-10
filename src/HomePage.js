@@ -32,7 +32,7 @@ function HomePage() {
     }
   }, [query, loginUser]);
   return (
-    <div className="w-full mx-auto bg-background">
+    <div className="w-full mx-auto bg-background mb-20">
    
       {/* Render the rest of the homepage components */}
       <Feature />
