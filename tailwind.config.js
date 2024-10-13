@@ -22,6 +22,8 @@ module.exports = {
         stakeDark: '#0b53a2',
         redcsgo: '#fe617c',
         darkred: '#bf223d',
+        featurebg: '#020101',
+        featuregrad: '#1D1307',
       },
       fontFamily: {
         suse: ['SUSE', 'sans-serif'],

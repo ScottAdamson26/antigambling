@@ -54,7 +54,7 @@ function DesktopNav({ onToggle }) {
   return (
     <>
       {/* Top Navigation */}
-      <div className="sticky top-0 w-full pl-6 pr-20 py-4 bg-background text-white flex justify-between items-center z-20">
+      <div className="sticky top-0 w-full pl-6 pr-20 py-4 h-[10vh] bg-background text-white flex justify-between items-center z-20">
         <img src={logo} alt="Logo" className="h-10 ml-10 mt-2" />
         {isLoggedIn ? (
           <button
