@@ -35,7 +35,7 @@ const OffersList = () => {
     <div className="flex flex-col items-center space-y-6 mt-20 font-suse">
         <h1 className='text-white text-xl font-semibold'> Weekly Trusted Offers</h1>
       {offers.map((offer) => (
-        <div key={offer.id} className="bg-zinc-800 px-16 rounded-xl shadow-lg p-4 flex flex-col items-center text-center border-2 border-navPurple" >
+        <div key={offer.id} className="bg-zinc-800 px-12 py-6 rounded-xl shadow-lg p-4 flex flex-col items-center text-center border-2 border-navPurple" >
           {/* Offer Image */}
           <div className="w-20 h-20 mb-2 flex items-center justify-center">
             <img src={offer.image} alt={offer.title} className="w-full h-full object-contain" />
