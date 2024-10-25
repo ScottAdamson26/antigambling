@@ -39,7 +39,7 @@ function News() {
   }, []);
 
   return (
-    <div className="mb-16 font-bold text-xl font-suse">
+    <div className=" font-bold text-xl font-suse">
       {/* Heading */}
       <h2 className="text-base font-extrabold text-white mb-4 uppercase tracking-wide">All News</h2>
 

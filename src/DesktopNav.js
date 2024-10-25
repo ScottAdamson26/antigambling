@@ -38,7 +38,7 @@ function DesktopNav({ onToggle }) {
     if (isOpen) {
       setTimeout(() => setShowText(true), 150); // Delay text appearance when opening
     } else {
-      setShowText(false); // Immediately hide text when closing
+      setTimeout(() => setShowText(false), 300); // Delay text appearance when opening
     }
   }, [isOpen]);
 
@@ -84,7 +84,7 @@ function DesktopNav({ onToggle }) {
 
       {/* Side Navigation Container */}
       <div
-        className={`fixed font-normal font-suse text-base left-0 top-12 h-[calc(100vh-3rem)] ml-3 pb-6 pt-10 z-10 flex flex-col justify-between transition-all duration-500 ${
+        className={`fixed font-medium font-suse text-base left-0 top-12 h-[calc(100vh-3rem)] ml-3 pb-6 pt-10 z-10 flex flex-col justify-between transition-all duration-500 ${
           isOpen ? "w-56" : "w-20"
         }`}
       >
@@ -105,46 +105,49 @@ function DesktopNav({ onToggle }) {
                 </div>
               </button>
 
-              {/* Navigation Items */}
-              {navItems.map((item) => {
-                // Check if the current path matches or starts with "/news"
-                const isActive =
-                  item.path === "/news"
-                    ? location.pathname.startsWith("/news")
-                    : location.pathname === item.path;
+             {/* Navigation Items */}
+{navItems.map((item) => {
+  // Check if the current path matches or starts with "/news"
+  const isActive =
+    item.path === "/news"
+      ? location.pathname.startsWith("/news")
+      : location.pathname === item.path;
 
-                return (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavigation(item.path)}
-                    className={`flex items-center px-3 w-full rounded-2xl shadow-inner tracking-wider transition-all duration-500 ease-in-out transform ${
-                      isActive
-                        ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105"
-                        : "hover:text-white text-gray-300 hover:bg-gradient-to-r hover:from-orange-400 hover:via-navPurple hover:to-orange-600 hover:scale-105"
-                    }`}
-                  >
-                    <div
-                      className={` w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-500 ease-in-out transform ${
-                        isActive
-                          ? "text-white scale-105"
-                          : "hover:text-white text-gray-300 hover:scale-110"
-                      }`}
-                    >
-                      <FontAwesomeIcon icon={item.icon} />
-                    </div>
-                    {isOpen && showText && (
-                      <span className="transition-opacity duration-500 text-sm ml-2">
-                        {item.name}
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
+  return (
+    <button
+      key={item.name}
+      onClick={() => handleNavigation(item.path)}
+      className={`w-full flex flex-row h-[45px] items-center rounded-2xl transition-all duration-500 ease-in-out transform py-4 px-5 ${
+        isActive
+          ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105"
+          : "hover:text-white text-gray-200 hover:bg-gradient-to-r hover:from-orange-400 hover:via-navPurple hover:to-orange-600 hover:scale-105"
+      }`}
+    >
+      <div
+        className={`flex items-center ml-[2px] justify-center rounded-lg transition-all duration-300 ease-in-out transform ${
+          isActive ? "text-white" : "text-inherit"
+        }`}
+      >
+        <FontAwesomeIcon icon={item.icon} />
+      </div>
+      <div className="flex items-center justify-center">
+        <p
+          className={`ml-4 text-sm font-md transition-all duration-300 ease-in-out transform ${
+            isOpen && showText ? "opacity-100 ml-2" : "opacity-0"
+          }`}
+        >
+          {item.name}
+        </p>
+      </div>
+    </button>
+  );
+})}
+
             </nav>
           </div>
         </div>
 
-        <div className="mt-auto">
+        <div className="mt-auto font-medium">
           {isLoggedIn ? (
             <>
               {/* Fixed size for Sign Out Button */}
@@ -152,41 +155,71 @@ function DesktopNav({ onToggle }) {
                 <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
                 <button
                   onClick={logoutUser}
-                  className={`relative w-full h-10 flex items-center justify-center text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
+                  className={`relative w-full h-10 flex items-center text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg ${
+                    isOpen && showText ? "px-[70px]" : "px-[29px]"
+                  }`}
                 >
-                  <div className="space-x-2 flex items-center">
+                  <div className="flex items-center">
                     <FontAwesomeIcon icon={faDiscord} className="text-lg" />
-                    {isOpen && showText && <span className="text-sm">Sign Out</span>}
+                    <span
+                      className={`text-sm transition-all duration-300 transform ${
+                        isOpen && showText
+                          ? "opacity-100 translate-x-0 ml-2"
+                          : "opacity-0 translate-x-[-10px] ml-0"
+                      }`}
+                    >
+                      Sign Out
+                    </span>
                   </div>
                 </button>
               </div>
 
-              {/* Fixed size for Profile Button */}
               <div className="relative group mt-4">
                 <div className="absolute inset-x-0 bottom-0 h-8 bg-zinc-800 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
                 <button
                   onClick={() => handleNavigation("/profile")}
-                  className={`relative w-full h-10 flex items-center justify-center text-white bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-white-500/50 rounded-lg`}
+                  className={`relative w-full h-10 flex items-center text-white  bg-gradient-to-r from-zinc-700 via-navBg to-zinc-700 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-white-500/50 dark:shadow-lg dark:shadow-white-500/80  rounded-lg ${
+                    isOpen && showText ? "px-[70px]" : "px-[33px]"
+                  }`}
                 >
-                  <div className="space-x-2 flex items-center">
-                    <FontAwesomeIcon icon={faUser} className="text-md" />
-                    {isOpen && showText && <span className="text-sm">Profile</span>}
+                  <div className="flex items-center">
+                    <FontAwesomeIcon icon={faUser} className="text-lg" />
+                    <span
+                      className={`text-sm transition-all duration-300 transform ease-in-out ${
+                        isOpen && showText
+                          ? "opacity-100 translate-x-0 ml-4"
+                          : "opacity-0 translate-x-[-5px] ml-0"
+                      }`}
+                    >
+                      Profile
+                    </span>
                   </div>
                 </button>
               </div>
             </>
           ) : (
             <div className="relative group mt-4">
-            <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
-            <a
-              href="/api/discord-login"
-              className={`relative w-full h-10 flex items-center justify-center  text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg`}
-            >
-              <FontAwesomeIcon icon={faDiscord} className="text-md" />
-              {isOpen && showText && <span className="text-sm ml-2">Sign In</span>}
-            </a>
-          </div>
-          
+                <div className="absolute inset-x-0 bottom-0 h-8 bg-amber-700 rounded-lg transform translate-y-1 transition-all duration-200 ease-in-out"></div>
+                <button
+                  onClick={() => handleNavigation("/api/discord-login")}
+                  className={`relative w-full h-10 flex items-center text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 shadow-lg hover:translate-y-0.5 transition-all duration-500 shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 rounded-lg ${
+                    isOpen && showText ? "px-[70px]" : "px-[29px]"
+                  }`}
+                >
+                  <div className="flex items-center">
+                    <FontAwesomeIcon icon={faDiscord} className="text-lg" />
+                    <span
+                      className={`text-sm transition-all duration-300 transform ${
+                        isOpen && showText
+                          ? "opacity-100 translate-x-0 ml-2"
+                          : "opacity-0 translate-x-[-10px] ml-0"
+                      }`}
+                    >
+                      Sign Out
+                    </span>
+                  </div>
+                </button>
+              </div>
           )}
         </div>
       </div>

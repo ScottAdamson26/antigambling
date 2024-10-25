@@ -15,9 +15,9 @@ function Feature() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full h-[90vh]  overflow-hidden">
+    <div className="w-full h-[60vh]  overflow-hidden">
 
-      <div className="flex flex-col h-full bg-gradient-to-b from-zinc-900 to-amber-600 rounded-3xl items-center  justify-center">
+      <div className="flex flex-col h-full bg-gradient-to-b from-zinc-900 via-amber-00 to-amber-600/80 rounded-3xl items-center  justify-center">
         <h1 className="text-5xl text-white font-bold">Join the Fair Side.</h1>
         <h2 className='text-white uppercase font-bold mt-2 opacity-30 tracking-wider	'>Anti Gambling Gambling Club</h2>
         

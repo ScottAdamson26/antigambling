@@ -13,7 +13,7 @@ function Blogs({ showIcon = false }) {
   }
 
   return (
-    <div className="mb-8 font-bold text-xl font-suse">
+    <div className=" font-bold text-xl font-suse">
       {/* Heading for Latest News and Icon */}
       <div className="flex justify-between items-center mb-4 pr-4">
         <h2 className="text-base font-extrabold text-white uppercase tracking-wide">Latest News</h2>

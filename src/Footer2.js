@@ -3,8 +3,8 @@ import logo from './logo.png';
 
 const Footer2 = () => {
   return (
-    <footer className="w-full bg-background py-28">
-      <div className="container mx-auto flex justify-center">
+    <footer className="w-full bg-background pt-28 pb-32">
+      <div className="container mx-auto flex justify-center opacity-30">
         <img src={logo} alt="Logo" className="h-16" />
       </div>
     </footer>
