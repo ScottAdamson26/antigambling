@@ -9,7 +9,7 @@ function Profile() {
   }
 
   return (
-    <div className="profile-page bg-navBg flex flex-col items-center p-10">
+    <div className="rounded-lg bg-navBg mt-10 flex flex-col items-center p-10">
           <img
         src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png`}
         alt={`${username}'s avatar`} 
