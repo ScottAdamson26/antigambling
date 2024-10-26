@@ -214,7 +214,7 @@ function DesktopNav({ onToggle }) {
                         : "opacity-0 translate-x-[-10px] ml-0"
                     }`}
                   >
-                    Sign Out
+                    Sign In
                   </span>
                 </div>
               </button>
