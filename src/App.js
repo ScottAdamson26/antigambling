@@ -13,6 +13,8 @@ import Videos from './Videos';
 import Showcase from './Showcase';
 import Contact from './Contact';
 import Footer from './Footer2';
+import Library from './Library';
+import StrategiesPage from './Pages/StrategiesPage';
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   
@@ -60,6 +62,10 @@ function App() {
                     <Route path="/videos" element={<Videos />} />
                     <Route path="/reviews" element={<Showcase />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/Library" element={<Library />} />
+                    <Route path="/Strategies" element={<StrategiesPage />} />
+
+
                   </Routes>
                   <Footer/>
                 </div>

@@ -11,6 +11,9 @@ import {
   faUser,
   faOutdent,
   faIndent,
+  faBook,
+  faPuzzlePiece,
+  faChessKnight,
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import logo from "../src/logo.png";
@@ -20,9 +23,10 @@ const navItems = [
   { name: "Home", path: "/", icon: faHome },
   { name: "Reviews", path: "/reviews", icon: faStar },
   { name: "Videos", path: "/videos", icon: faVideo },
+  { name: "Library", path: "/library", icon: faBook},
   { name: "Offers", path: "/offers", icon: faGift },
+  {name: "Strategies", path: "/strategies", icon: faChessKnight},
   { name: "News", path: "/news", icon: faEarthAmericas }, // This will match /news and /news/:slug
-  { name: "Contact", path: "/contact", icon: faEnvelope },
 ];
 
 function DesktopNav({ onToggle }) {
@@ -119,7 +123,7 @@ function DesktopNav({ onToggle }) {
                     onClick={() => handleNavigation(item.path)}
                     className={`w-full flex flex-row h-[45px] items-center rounded-2xl transition-all duration-500 ease-in-out transform py-4 px-5 ${
                       isActive
-                        ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105"
+                        ? "text-white bg-gradient-to-r from-orange-400 via-navPurple to-orange-600 scale-105 font-semibold"
                         : "hover:text-white text-gray-200 hover:bg-gradient-to-r hover:from-orange-400 hover:via-navPurple hover:to-orange-600 hover:scale-105"
                     }`}
                   >
