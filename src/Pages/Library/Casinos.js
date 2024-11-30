@@ -25,7 +25,7 @@ const Casinos = () => {
       </div>
 
       {/* Casino Grid */}
-      <div className="grid grid-flow-col auto-cols-fr gap-4 mt-4">
+      <div className="grid grid-flow-col auto-cols-fr  gap-4 mt-6">
         {casinos.map((casino, index) => (
           <div
             key={index}

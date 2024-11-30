@@ -22,13 +22,13 @@ const FamousMoments = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col mt-4">
-      <h2 className="text-base uppercase font-bold text-white mb-4">
+    <div className="w-full flex flex-col mt-6">
+      <h2 className="text-base uppercase font-bold text-white mb-6">
         Famous Moments
       </h2>
 
       {/* Famous Moments Grid */}
-      <div className="grid grid-cols-4 gap-4 w-full">
+      <div className="grid grid-cols-4 gap-4 w-full ">
         {moments.map((moment, index) => (
           <a
             key={index}

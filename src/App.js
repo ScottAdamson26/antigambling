@@ -13,8 +13,8 @@ import Videos from './Videos';
 import Showcase from './Showcase';
 import Contact from './Contact';
 import Footer from './Footer2';
-import Library from './Library';
-import StrategiesPage from './Pages/StrategiesPage';
+import Library from './Pages/Library/Library';
+import StrategiesPage from './Pages/Strategies/StrategiesPage';
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   

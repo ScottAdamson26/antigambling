@@ -18,14 +18,14 @@ const Strategies = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col mt-4">
+    <div className="w-full flex flex-col mt-6">
       <div className="flex flex-row items-center space-x-4 hover:cursor-pointer">
         <h2 className="text-base uppercase font-bold">Strategies</h2>
         <FontAwesomeIcon icon={faChevronRight} className="font-xs hidden" />
       </div>
 
       {/* Strategies Grid */}
-      <div className="grid grid-flow-col auto-cols-fr gap-4 mt-4">
+      <div className="grid grid-flow-col auto-cols-fr gap-4 mt-6">
         {strategies.map((strategy, index) => (
           <div
             key={index}
