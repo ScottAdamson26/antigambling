@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faGift,
-  faEnvelope,
   faEarthAmericas,
   faVideo,
   faStar,
@@ -12,7 +11,6 @@ import {
   faOutdent,
   faIndent,
   faBook,
-  faPuzzlePiece,
   faChessKnight,
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
